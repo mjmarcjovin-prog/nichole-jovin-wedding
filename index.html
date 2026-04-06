@@ -146,6 +146,7 @@ button:hover {
   color: #777;
 }
 
+
 /* Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(25px); }
@@ -174,18 +175,20 @@ button:hover {
   <div class="countdown" id="countdown"></div>
 
   <div class="section">
-    <a target="_blank" href="https://www.google.com/maps/dir/17.1914692,120.4735788/17.63902,120.40953/@17.4117182,120.2707857,11z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
+    <a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-church"></i> Church Location
     </a>
-    <a target="_blank" href="https://www.bing.com/maps/search?q=J9CR+VV4+San+Ildefonso+Ilocos+Sur">
+    <a target="_blank" href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel/@17.6212671,120.3926237,18.5z/data=!4m9!3m8!1s0x338e65b70b4cea4b:0xfc08ca958eb83351!5m2!4m1!1i2!8m2!3d17.6221359!4d120.3922139!16s%2Fg%2F11stl4b1n7?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-location-dot"></i> Wedding Venue
     </a>
   </div>
+
 
   <div class="section">
   <h3>RSVP</h3>
 
   <form
+    id="rsvpForm"
     action="https://formspree.io/f/xykblldw"
     method="POST"
   >
@@ -201,23 +204,47 @@ button:hover {
   placeholder="Your Email Address"
 />
 
+<select name="attending" id="attending" required>
+  <option value="">-- Please Choose --</option>
+  <option value="Will Attend">Will Attend</option>
+  <option value="Cannot Attend">Sorry I can’t attend</option>
+</select>
 
-    <select name="attending">
-      <option value="Will Attend">Will Attend</option>
-      <option value="Regretfully Decline">Regretfully Decline</option>
-    </select>
 
     <textarea name="message" placeholder="Message (optional)"></textarea>
 
     <!-- Optional hidden subject line -->
     <input type="hidden" name="_subject" value="New Wedding RSVP – Nichole & Jovin">
 
-    <button type="submit">
-      ❤️ Submit RSVP
-    </button>
+    
+<button type="submit" id="submitBtn" disabled>
+  ❤️ Submit RSVP
+</button>
+
   </form>
 </div>
-``
+
+<div id="qrSection" style="display:none; text-align:center;">
+  <div class="qr">
+    <img src="images/QRcode.jpg" alt="Nichole and Jovin QR Code">
+    <small>Please scan this QR code.</small>
+  </div>
+
+  <label style="display:block; margin-top:10px;">
+    <input type="checkbox" id="qrConfirm">
+    I have scanned the QR code
+  </label>
+</div>
+
+
+<div class="butterfly-container">
+  <div class="butterfly b1"></div>
+  <div class="butterfly b2"></div>
+  <div class="butterfly b3"></div>
+</div>
+
+
+
 
 <script>
 const target = new Date("October 10, 2026 14:00:00").getTime();
@@ -246,6 +273,28 @@ document.getElementById("rsvpForm").addEventListener("submit", e => {
   e.preventDefault();
   document.getElementById("rsvpForm").style.display = "none";
   document.getElementById("thankyou").style.display = "block";
+});
+</script>
+
+<script>
+const attending = document.getElementById("attending");
+const qrSection = document.getElementById("qrSection");
+const qrConfirm = document.getElementById("qrConfirm");
+const submitBtn = document.getElementById("submitBtn");
+
+attending.addEventListener("change", () => {
+  if (attending.value === "Cannot Attend") {
+    qrSection.style.display = "block";
+    submitBtn.disabled = true;
+  } else {
+    qrSection.style.display = "none";
+    qrConfirm.checked = false;
+    submitBtn.disabled = false;
+  }
+});
+
+qrConfirm.addEventListener("change", () => {
+  submitBtn.disabled = !qrConfirm.checked;
 });
 </script>
 
