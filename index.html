@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Nichole & Jovin | Wedding Invitation</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #fff1f2, #fff7ed);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.invite {
+  background: #ffffff;
+  max-width: 420px;
+  width: 100%;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.1);
+  text-align: center;
+  animation: fadeIn 1.2s ease;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.date {
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.time-box {
+  background: #ffe4e6;
+  border-radius: 12px;
+  padding: 10px;
+  animation: pulse 2s infinite;
+}
+
+.time-box span {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.time-box small {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.section {
+  border-top: 1px dashed #f2c0c8;
+  padding-top: 16px;
+  margin-top: 18px;
+}
+
+.section a {
+  display: block;
+  text-decoration: none;
+  color: #e11d48;
+  margin: 8px 0;
+}
+
+.section i {
+  margin-right: 6px;
+}
+
+/* RSVP */
+form {
+  margin-top: 12px;
+  text-align: left;
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  background: #e11d48;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+button:hover {
+  background: #be123c;
+}
+
+.thankyou {
+  color: #16a34a;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* QR */
+.qr img {
+  width: 140px;
+  margin-top: 6px;
+}
+
+.qr small {
+  display: block;
+  color: #777;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+  h1 { font-size: 30px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="invite">
+  <h1>Nichole &amp; Jovin</h1>
+  <div class="subtitle">Together with our families</div>
+  <div class="date">October 10, 2026 | 2:00 PM</div>
+
+  <div class="countdown" id="countdown"></div>
+
+  <div class="section">
+    <a target="_blank" href="https://www.google.com/maps/dir/17.1914692,120.4735788/17.63902,120.40953/@17.4117182,120.2707857,11z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
+      <i class="fa-solid fa-church"></i> Church Location
+    </a>
+    <a target="_blank" href="https://www.bing.com/maps/search?q=J9CR+VV4+San+Ildefonso+Ilocos+Sur">
+      <i class="fa-solid fa-location-dot"></i> Wedding Venue
+    </a>
+  </div>
+
+  <div class="section">
+  <h3>RSVP</h3>
+
+  <form
+    action="https://formspree.io/f/xykblldw"
+    method="POST"
+  >
+    <input type="text" name="name" required placeholder="Your Name">
+
+    <input type="number" name="guests" min="1" placeholder="Number of Guests">
+
+    
+<input
+  type="email"
+  name="email"
+  required
+  placeholder="Your Email Address"
+/>
+
+
+    <select name="attending">
+      <option value="Will Attend">Will Attend</option>
+      <option value="Regretfully Decline">Regretfully Decline</option>
+    </select>
+
+    <textarea name="message" placeholder="Message (optional)"></textarea>
+
+    <!-- Optional hidden subject line -->
+    <input type="hidden" name="_subject" value="New Wedding RSVP – Nichole & Jovin">
+
+    <button type="submit">
+      ❤️ Submit RSVP
+    </button>
+  </form>
+</div>
+``
+
+<script>
+const target = new Date("October 10, 2026 14:00:00").getTime();
+const cd = document.getElementById("countdown");
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const d = target - now;
+
+  if (d < 0) return;
+
+  const days = Math.floor(d / (1000*60*60*24));
+  const hrs = Math.floor((d / (1000*60*60)) % 24);
+  const min = Math.floor((d / (1000*60)) % 60);
+  const sec = Math.floor((d / 1000) % 60);
+
+  cd.innerHTML = `
+    <div class="time-box"><span>${days}</span><small>Days</small></div>
+    <div class="time-box"><span>${hrs}</span><small>Hours</small></div>
+    <div class="time-box"><span>${min}</span><small>Minutes</small></div>
+    <div class="time-box"><span>${sec}</span><small>Seconds</small></div>
+  `;
+}, 1000);
+
+document.getElementById("rsvpForm").addEventListener("submit", e => {
+  e.preventDefault();
+  document.getElementById("rsvpForm").style.display = "none";
+  document.getElementById("thankyou").style.display = "block";
+});
+</script>
+
+</body>
+</html>
