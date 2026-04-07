@@ -18,9 +18,67 @@
   font-family: "Poppins", sans-serif;
 }
 
+
+
+.faq-toggle-btn {
+  margin-bottom: 1rem;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.faq-toggle-btn {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #c4a76a; /* champagne / gold */
+  color: #c4a76a;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.faq-toggle-btn:hover {
+  background-color: #c4a76a;
+  color: #ffffff;
+}
+
+.faq-toggle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 167, 106, 0.35);
+}
+
+
+.faq summary {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.faq details[open] summary {
+  color: #c4a76a;
+}
+
+
+
+
+
+
+
+
+
+
+
 body {
   margin: 0;
-  background: linear-gradient(135deg, #fff1f2, #fff7ed);
+  background: 
+
+    url("images/xxxxx") center / cover no-repeat fixed;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -29,7 +87,9 @@ body {
 }
 
 .invite {
-  background: #ffffff;
+  background: 
+
+    url("xxxxx") center / cover no-repeat;
   max-width: 420px;
   width: 100%;
   padding: 24px;
@@ -37,13 +97,86 @@ body {
   box-shadow: 0 15px 40px rgba(0,0,0,.1);
   text-align: center;
   animation: fadeIn 1.2s ease;
+
 }
 
 h1 {
   font-family: "Playfair Display", serif;
   font-size: 34px;
   margin-bottom: 4px;
+  color: #fb6f92;
 }
+
+
+
+/* Wedding Details Sections */
+.details h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin: 18px 0 8px;
+}
+
+.details h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+.details p,
+.details li {
+  font-size: 13px;
+  margin: 4px 0;
+  color: #555;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.center {
+  text-align: center;
+}
+
+.small {
+  font-size: 12px;
+  color: #777;
+}
+
+.timeline li {
+  list-style: none;
+  margin: 6px 0;
+}
+
+.faq h4 {
+  margin-top: 14px;
+  font-weight: 600;
+  color: #fb6f92;
+}
+
+
+
+
+h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 4px;
+  color: #fb6f92;
+}
+
+
+
+a {
+  
+  font-size: 15px;
+  margin-bottom: 4px;
+  color-scheme: #fb6f92;
+}
+
 
 .subtitle {
   font-style: italic;
@@ -54,6 +187,7 @@ h1 {
 .date {
   font-weight: 500;
   margin-bottom: 18px;
+  color: #fb6f92;
 }
 
 .countdown {
@@ -61,6 +195,7 @@ h1 {
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 20px;
+  color: #fb6f92;
 }
 
 .time-box {
@@ -68,17 +203,24 @@ h1 {
   border-radius: 12px;
   padding: 10px;
   animation: pulse 2s infinite;
+  color: #fb6f92;
 }
 
 .time-box span {
   display: block;
   font-size: 22px;
   font-weight: 600;
+  color: #fb6f92;
 }
 
 .time-box small {
   text-transform: uppercase;
   font-size: 10px;
+}
+
+.timeline li {
+  list-style: none;
+  margin: 6px 0;
 }
 
 .section {
@@ -90,7 +232,7 @@ h1 {
 .section a {
   display: block;
   text-decoration: none;
-  color: #e11d48;
+  color: #fb6f92;
   margin: 8px 0;
 }
 
@@ -102,6 +244,7 @@ h1 {
 form {
   margin-top: 12px;
   text-align: left;
+  color: #fb6f92;
 }
 
 input, select, textarea {
@@ -111,11 +254,219 @@ input, select, textarea {
   padding: 10px;
   margin-bottom: 12px;
   font-size: 14px;
+ color: #fb6f92;
 }
+
+
+/* Attire Section */
+.attire h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin-bottom: 10px;
+}
+
+.attire p {
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* Attire Illustration */
+.attire-illustration {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  animation: attireFadeIn 1.2s ease both;
+}
+
+.attire-illustration img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Subtle hover lift */
+.attire-illustration img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Entrance animation */
+@keyframes attireFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.color-palette span {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* Animated Color Palette */
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+
+
+/* Tooltip Labels */
+.color-palette span {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.color-palette span::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(44, 44, 44, 0.9);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+/* Tooltip arrow */
+.color-palette span::before {
+  content: "";
+  position: absolute;
+  bottom: 118%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(44, 44, 44, 0.9) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* Show tooltip on hover / focus */
+.color-palette span:hover::after,
+.color-palette span:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+/* Zoom Modal */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  align-items: center;
+  justify-content: center;
+  animation: modalFade 0.3s ease;
+}
+
+.image-modal img {
+  max-width: 90%;
+  max-height: 85%;
+  border-radius: 18px;
+  animation: zoomIn 0.4s ease;
+}
+
+/* Close button */
+.close-modal {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 300;
+}
+
+/* Animations */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes modalFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+
+
+
+/* Stagger animation timing */
+.color-palette span:nth-child(1) { animation-delay: 0.1s; }
+.color-palette span:nth-child(2) { animation-delay: 0.25s; }
+.color-palette span:nth-child(3) { animation-delay: 0.4s; }
+.color-palette span:nth-child(4) { animation-delay: 0.55s; }
+.color-palette span:nth-child(5) { animation-delay: 0.7s; }
+.color-palette span:nth-child(6) { animation-delay: 0.85s; }
+
+/* Hover effect */
+.color-palette span:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* Keyframes */
+@keyframes paletteFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
 
 button {
   width: 100%;
-  background: #e11d48;
+  background: #ffc2d1;
   color: #fff;
   border: none;
   padding: 12px;
@@ -126,7 +477,7 @@ button {
 }
 
 button:hover {
-  background: #be123c;
+  background: #ff8fab;
 }
 
 .thankyou {
@@ -140,6 +491,13 @@ button:hover {
   width: 140px;
   margin-top: 6px;
 }
+
+
+#entourageContent {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
 
 .qr small {
   display: block;
@@ -161,11 +519,15 @@ button:hover {
 /* Mobile */
 @media (max-width: 400px) {
   h1 { font-size: 30px; }
+
+  
 }
 </style>
 </head>
 
 <body>
+
+  
 
 <div class="invite">
   <h1>Nichole &amp; Jovin</h1>
@@ -174,6 +536,23 @@ button:hover {
 
   <div class="countdown" id="countdown"></div>
 
+<div class="section">
+  <a
+    class="calendar-btn"
+    target="_blank"
+    href="https://www.google.com/calendar/render?action=TEMPLATE
+&text=Nichole+%26+Jovin+Wedding
+&dates=20261010T060000Z/20261010T140000Z
+&details=We+are+getting+married!+Join+us+to+celebrate+our+wedding+day.
+&location=St.+Dominic+of+Guzman+Parish+Church,+Santo+Domingo,+Ilocos+Sur
+"
+  >
+    <i class="fa-solid fa-calendar-plus"></i>
+    Add to Google Calendar
+  </a>
+</div>
+
+
   <div class="section">
     <a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-church"></i> Church Location
@@ -181,11 +560,284 @@ button:hover {
     <a target="_blank" href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel/@17.6212671,120.3926237,18.5z/data=!4m9!3m8!1s0x338e65b70b4cea4b:0xfc08ca958eb83351!5m2!4m1!1i2!8m2!3d17.6221359!4d120.3922139!16s%2Fg%2F11stl4b1n7?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-location-dot"></i> Wedding Venue
     </a>
+
+
+
+<!-- Wedding Day Timeline -->
+<div class="section details">
+  <h2>Our Wedding Day Timeline</h2>
+
+
+<ul class="timeline center">
+  <li>🕊️ <strong>2:00 PM</strong> – Ceremony</li>
+  <li>📸 <strong>3:30 PM</strong> – Photo Taking</li>
+  <li>🥂 <strong>4:00 PM</strong> – Cocktail Hour</li>
+  <li>🎤 <strong>4:30 PM</strong> – Start of Program</li>
+  <li>🍽️ <strong>7:00 PM</strong> – Dinner Time</li>
+  <li>🎉 <strong>9:00 PM</strong> – After Party</li>
+</ul>
+
+
+
+
+
+
+<div class="section details attire">
+  <h2>Attire</h2>
+
+  <p class="small">
+    Your presence means so much to us. Kindly help us keep a cohesive and elegant
+    celebration by following our dress code below.
+  </p>
+
+  <h4 class="center">Guest Attire</h4>
+  <p class="center"><strong>STRICTLY FORMAL</strong></p>
+<p class="small"><strong>Strictly no white dress</strong></p>
+  
+  <div class="grid-2">
+    <div>
+      <h4>Gentlemen</h4>
+      <p>Long sleeves polo</p>
+    </div>
+
+    <div>
+      <h4>Ladies</h4>
+      <p>Formal dress</p>
+      
+    </div>
   </div>
 
 
+  
+  <h4 class="center" style="margin-top:18px;">
+    Color Palette
+  </h4>
+
+  <p class="small center">
+    We encourage our guests to dress according to our color palette below
+  </p>
+
+<div class="attire-illustration">
+  <img
+    src="images/dcodeF.png"
+    alt="Wedding Guest Attire Guide"
+    id="attireImage"
+  >
+</div>
+
+<!-- Image Zoom Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
+
+
+  <div class="color-palette">
+    <span style="background:#C46A3B;"></span>
+    <span style="background:#B07A73;"></span>
+    <span style="background:#D48B7D;"></span>
+    <span style="background:#F2DFC9;"></span>
+    <span style="background:#F6E9D8;"></span>
+    <span style="background:#9E564F;"></span>
+  </div>
+
+  
+</div>
+
+
+    
+  </div>
+
+
+
+
+
+<!-- Principal Sponsors Attire -->
+<div class="section details">
+  <h2>Principal Sponsors Attire</h2>
+  <p class="small center">
+    Kindly use this as your guide for the Principal Sponsors' formal attire.
+  </p>
+
+  <div class="attire-illustration">
+    <img
+      src="images/dcodeNN.png"
+      alt="Principal Sponsors Attire Guide"
+      class="zoomable"
+      id="principalSponsorsAttire"
+    >
+  </div>
+</div>
+
+
+
+
+<script>
+  const principalImg = document.getElementById("principalSponsorsAttire");
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+
+  principalImg.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = principalImg.src;
+  });
+</script>
+
+
+
   <div class="section">
-  <h3>RSVP</h3>
+
+<button id="toggleEntourage" class="toggle-btn">
+  Entourage
+</button>
+
+
+<div id="entourageContent" class="section details">
+
+  <h2></h2>
+
+  <div class="grid-2">
+    <div>
+      <h4>Parents Groom</h4>
+      <p>Mr. Leonardo P. Rubino</p>
+      <p>Mrs. Marivic R. Pedro</p>
+    </div>
+
+    <div>
+      <h4>Parents Bride</h4>
+      <p>Mr. Dionisio L. Tiu</p>
+      <p>Mrs. Lanie B. Tiu</p>
+    </div>
+  </div>
+
+  <h4 class="center">Principal Sponsors</h4>
+  <p class="small center">To Stand as Witness to Our Vows</p>
+
+  <div class="grid-2">
+    <p>Dr. Angel Trinidad</p>
+    <p>Mrs. Celia Lazo</p>
+    <p>Mr. Jeruel Agcaoili</p>
+    <p>Mrs. Marlyn L. See</p>
+    <p>Mr. Pio Tiu</p>
+    <p>Dr. Maria Alioza H. Tiu</p>
+    <p>Mr. James Laygo</p>
+    <p>Mrs. Josephine Manganey</p>
+    <p>Mr. Samuel Lazo</p>
+    <p>Mrs. Mylene Cataya</p>
+    <p>Mr. Rowald Rubino</p>
+    <p>Mrs. Evangeline Pagarigan</p>
+    <p>Mr. Ronald Rubino</p>
+    <p>Ms. Emer Rubino</p>
+    <p>Mr. Kulyan Kapitan</p>
+    <p>Mrs. Maribel Dacalan</p>
+  </div>
+
+  <div class="grid-2">
+    <div>
+      <h4>Best Man</h4>
+      <p>Mr. Rodrigo Biri</p>
+    </div>
+    <div>
+      <h4>Maid of Honor</h4>
+      <p>Ms. Francene Tiu</p>
+    </div>
+  </div>
+
+  <h4 class="center">Secondary Sponsors</h4>
+
+  <p><strong>Candle</strong><br>Mr. Russel B. Trapsi<br>Ms. Abbygail Garcia</p>
+  <p><strong>Veil</strong><br>Mr. Wynzel Augustin<br>Ms. Fei B. Trapsi</p>
+  <p><strong>Cord</strong><br>Mr. James Lloyd Rubino<br>Ms. YZ Augustin</p>
+
+  <div class="grid-2">
+    <div>
+      <h4>Groomsmen</h4>
+      <p>Mr. Carl Rubino</p>
+      <p>Mr. Ezekiel Rubino</p>
+    </div>
+    <div>
+      <h4>Bridesmaids</h4>
+      <p>Mrs. Jhoanna T. Dasalla</p>
+      <p>Ms. Cenne Ma. Patricia T. Talbo</p>
+    </div>
+  </div>
+
+  <h4 class="center">Bearers</h4>
+  <p>Ring Bearer – TJ B. Tamayo</p>
+  <p>Bible Bearer – Daniel Rubino</p>
+  <p>Coin Bearer – Cenon Miguel R. Tiu</p>
+
+  <h4 class="center">Flower Girls</h4>
+  <p>Kristien B. Tamayo</p>
+  <p>Zoe Shane T. Dasalla</p>
+
+</div>
+
+
+
+<style>
+  .toggle-btn {
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #444;
+    color: #fff;
+  }
+
+ 
+.toggle-btn:hover {
+  background-color: #222;
+}
+
+
+
+.other-details {
+  margin-bottom: 24px;
+}
+
+.other-details summary {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.other-details details {
+  margin-bottom: 10px;
+}
+
+.other-details details[open] summary {
+  color: #c4a76a;
+}
+
+
+
+
+
+  }
+</style>
+
+
+<script>
+  const button = document.getElementById("toggleEntourage");
+  const content = document.getElementById("entourageContent");
+
+  button.addEventListener("click", () => {
+    if (content.style.display === "none") {
+      content.style.display = "block";
+    } else {
+      content.style.display = "none";
+    }
+  });
+</script>
+
+
+<h3>GUEST RSVP</h3>
 
   <form
    
@@ -196,7 +848,7 @@ button:hover {
   >
     <input type="text" name="name" required placeholder="Your Name">
 
-    <input type="number" name="guests" min="1" placeholder="Number of Guests">
+    <input type="number" name="guests" max="2" placeholder="Number of Guests">
 
     
 <input
@@ -219,86 +871,273 @@ button:hover {
     <input type="hidden" name="_subject" value="New Wedding RSVP – Nichole & Jovin">
 
     
-<button type="submit" id="submitBtn" disabled>
+
+<button type="submit" id="submitBtn">
   ❤️ Submit RSVP
 </button>
+
 
   </form>
 </div>
 
-<div id="qrSection" style="display:none; text-align:center;">
-  <div class="qr">
-    <img src="images/QRcode.jpg" alt="Nichole and Jovin QR Code">
-    <small>Please scan this QR code.</small>
-  </div>
 
-  <label style="display:block; margin-top:10px;">
-    <input type="checkbox" id="qrConfirm">
-    I have scanned the QR code
-  </label>
+
+
+
+<!-- OTHER DETAILS -->
+<div class="other-details">
+
+  <h4 class="center">Other Details</h4>
+
+  <details open>
+    <summary>GIFT GUIDE</summary>
+    <p>
+      As love is what the day is all about, your presence is one we can’t celebrate without.
+      But should you still believe a gift is worth giving, a
+      <strong>monetary gift</strong> for our future is a delightful blessing.
+    </p>
+
+    <!-- QR CODE -->
+    <div class="qr" style="margin-top:14px; text-align:center;">
+      <img src="images/QRcode.jpg" alt="Nichole and Jovin QR Code">
+      <small>Please scan this QR code.</small>
+    </div>
+  </details>
+
+  <details>
+    <summary>SNAP &amp; SHARE</summary>
+    <p>
+      You may capture and share your favourite moments during our wedding day.
+      Don’t forget to tag us! Your photos will add to the memories we cherish.
+    </p>
+  </details>
+
 </div>
 
 
-<div class="butterfly-container">
-  <div class="butterfly b1"></div>
-  <div class="butterfly b2"></div>
-  <div class="butterfly b3"></div>
+
+
+
+<div class="section details faq">
+  <h2></h2>
+
+  <button id="toggleAllFaqs" class="faq-toggle-btn">
+    FAQs
+  </button>
+
+  <details>
+    <summary>WHEN SHOULD I RSVP BY?</summary>
+    <p>
+      Please send your RSVP as soon as you can. The earlier, the better!<br><br>
+      The latest we can accept your response is on
+      <strong>August 25, 2026</strong>.
+      If we will not receive a response by this date, it will be marked as a
+      <strong>“NO”</strong>.<br><br>
+      We will miss you celebrating with us; however, we must properly provide the
+      total guest count to our venue and suppliers. We hope you understand.<br><br>
+      To RSVP, go to the <strong>“Guest RSVP”</strong> tab.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT SHOULD I WEAR?</summary>
+    <p>
+      Refer to the attire guide under the <strong>“Attire”</strong> tab.
+      Check it out!<br><br>
+      <strong>Note:</strong> STRICTLY no wearing of white dress, jeans, or slippers.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I BRING A DATE (PLUS ONE)?</summary>
+    <p>
+      Unfortunately, no. We will specifically inform you if you can have a plus one.
+      We hope you understand that we can no longer accommodate those who are not
+      listed on our guest list due to limited seats at the venue.
+    </p>
+  </details>
+
+  <details>
+    <summary>ARE KIDS ALLOWED?</summary>
+    <p>
+      We certainly love your kids, but due to necessity rather than choice, we
+      regretfully cannot accommodate them at the venue.
+      The only kids attending are those who are part of the entourage and those
+      requested. We hope you understand and enjoy the night off.
+    </p>
+  </details>
+
+  <details>
+    <summary>IS THE CEREMONY AND RECEPTION AT THE SAME PLACE?</summary>
+    <p>
+      No. The church and reception hall are not located in the same place.
+      More details about the locations can be found in the <strong>“Venue”</strong>
+      tab. Check it out!
+    </p>
+  </details>
+
+  <details>
+    <summary>IS THERE A PARKING SPACE PROVIDED?</summary>
+    <p>
+      Yes. There is free parking available for all wedding guests.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT TIME SHOULD I ARRIVE?</summary>
+    <p>
+      We encourage our wedding guests to be at the venue
+      <strong>30 minutes before</strong> our
+      <strong>2:00 PM</strong> ceremony time, to have ample time to settle and find a
+      seat.<br><br>
+      Kindly consider traffic and travel time going to the venue.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT DO I DO IF I’M LATE TO THE CEREMONY?</summary>
+    <p>
+      If you are late to the ceremony, please do not walk down the aisle and try to
+      find a seat.<br><br>
+      While we want all of our friends and family there, we would appreciate it if
+      you would ask assistance from our coordinator or wait to join us until the
+      reception. Thank you for understanding.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I TAKE PHOTOS OR VIDEOS DURING THE CEREMONY?</summary>
+    <p>
+      We encourage our guests to refrain from taking photos or videos during the
+      ceremony as we have hired an amazing team to capture the moments.
+      Guests may still do so.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT SHOULD I DO ONCE THE CEREMONY IS DONE?</summary>
+    <p>
+      There will be a cocktail hour after the ceremony wherein afternoon snacks will
+      be served.<br><br>
+      You may also choose this time to find your seat, mingle with other guests,
+      use the photo booth, and get your souvenirs.
+      Our coordinators will be available if you need any assistance.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I SEAT ANYWHERE DURING THE RECEPTION?</summary>
+    <p>
+      Yes. Feel free to sit anywhere during the reception, pick a spot you like,
+      mingle around, and make yourself at home.<br><br>
+      <strong>Note:</strong> Our principal sponsors will have designated seats
+      reserved for them.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHEN IS THE APPROPRIATE TIME TO LEAVE?</summary>
+    <p>
+      It took us almost a year to plan a wedding that everyone will hopefully enjoy.
+      We encourage our guests to finish the program.<br><br>
+      We aim to end at <strong>9:00 PM to 10:00 PM</strong>.
+    </p>
+  </details>
+
+  <details>
+    <summary>HOW CAN I HELP THE COUPLE TO HAVE THE BEST TIME ON THEIR WEDDING DAY?</summary>
+    <p>
+      Be there on time. Wear appropriate attire. Stay until the end of the program.
+      Participate and have <strong>FUN!</strong>
+    </p>
+  </details>
+
+  <details>
+    <summary>OTHER QUESTIONS OR CONCERNS?</summary>
+    <p>
+      You may contact us thru Facebook Messenger or via SMS:<br><br>
+      <strong>Nichole:</strong> 0969 096 1848<br>
+      <strong>Marc Jovin:</strong> 0947 000 0335
+    </p>
+  </details>
+
 </div>
+
 
 
 
 
 <script>
-const target = new Date("October 10, 2026 14:00:00").getTime();
-const cd = document.getElementById("countdown");
-
-setInterval(() => {
-  const now = new Date().getTime();
-  const d = target - now;
-
-  if (d < 0) return;
-
-  const days = Math.floor(d / (1000*60*60*24));
-  const hrs = Math.floor((d / (1000*60*60)) % 24);
-  const min = Math.floor((d / (1000*60)) % 60);
-  const sec = Math.floor((d / 1000) % 60);
-
-  cd.innerHTML = `
-    <div class="time-box"><span>${days}</span><small>Days</small></div>
-    <div class="time-box"><span>${hrs}</span><small>Hours</small></div>
-    <div class="time-box"><span>${min}</span><small>Minutes</small></div>
-    <div class="time-box"><span>${sec}</span><small>Seconds</small></div>
-  `;
-}, 1000);
-
-document.getElementById("rsvpForm").addEventListener("submit", e => {
-  e.preventDefault();
-  document.getElementById("rsvpForm").style.display = "none";
-  document.getElementById("thankyou").style.display = "block";
+document.querySelector(".close-modal").addEventListener("click", () => {
+  modal.style.display = "none";
 });
-</script>
 
-<script>
-const attending = document.getElementById("attending");
-const qrSection = document.getElementById("qrSection");
-const qrConfirm = document.getElementById("qrConfirm");
-const submitBtn = document.getElementById("submitBtn");
-
-attending.addEventListener("change", () => {
-  if (attending.value === "Cannot Attend") {
-    qrSection.style.display = "block";
-    submitBtn.disabled = true;
-  } else {
-    qrSection.style.display = "none";
-    qrConfirm.checked = false;
-    submitBtn.disabled = false;
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
   }
 });
 
-qrConfirm.addEventListener("change", () => {
-  submitBtn.disabled = !qrConfirm.checked;
-});
+    });
+  });
 </script>
+
+<script>
+  const toggleBtn = document.getElementById('toggleAllFaqs');
+  const allDetails = document.querySelectorAll('.faq details');
+
+  toggleBtn.addEventListener('click', () => {
+    const shouldOpen = toggleBtn.textContent === 'FAQs';
+
+    allDetails.forEach(detail => {
+      detail.open = shouldOpen;
+    });
+
+    if (shouldOpen && allDetails.length > 0) {
+      // Smooth scroll to first FAQ
+      allDetails[0].scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    toggleBtn.textContent = shouldOpen
+      ? 'Collapse all'
+      : 'FAQs';
+  });
+</script>
+
+
+<script>
+(() => {
+  const target = new Date("2026-10-10T14:00:00").getTime();
+  const cd = document.getElementById("countdown");
+
+  if (!cd) return;
+
+  setInterval(() => {
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      cd.innerHTML = "<strong>🎉 Today is the Big Day! 🎉</strong>";
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff / 3600000) % 24;
+    const m = Math.floor(diff / 60000) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+
+    cd.innerHTML = `
+      <div class="time-box"><span>${d}</span><small>Days</small></div>
+      <div class="time-box"><span>${h}</span><small>Hours</small></div>
+      <div class="time-box"><span>${m}</span><small>Minutes</small></div>
+      <div class="time-box"><span>${s}</span><small>Seconds</small></div>`;
+  }, 1000);
+})();
+</script>
+
 
 </body>
 </html>
