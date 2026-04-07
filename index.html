@@ -66,7 +66,6 @@
 }
 
 
-
 body {
   margin: 0;
   background: 
@@ -527,7 +526,9 @@ button:hover {
   <div class="subtitle">Together with our families</div>
   <div class="date">October 10, 2026 | 2:00 PM</div>
 
+
   <div class="countdown" id="countdown"></div>
+
 
 <div class="section">
   <a
@@ -545,7 +546,7 @@ button:hover {
   </a>
 </div>
 
-  
+
   <div class="section">
     <a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-church"></i> Church Location
@@ -618,6 +619,14 @@ button:hover {
   >
 </div>
 
+<!-- Image Zoom Modal -->
+<div id="imageModal" class="image-modal">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+
+
+
 
 
   <div class="color-palette">
@@ -635,6 +644,8 @@ button:hover {
 
     
   </div>
+
+
 
 
 
@@ -831,9 +842,24 @@ button:hover {
   >
     <input type="text" name="name" required placeholder="Your Name">
 
-    <input type="number" name="guests" max="2" placeholder="Number of Guests">
+    <select name="guests" id="guests" required>
+  <option value="">Number of Guests</option>
+  <option value="1">1 (Just me)</option>
+  <option value="2">2 (With extra attendee)</option>
+</select>
 
-    
+
+
+<div id="extraGuestField" style="display:none;">
+  <input
+    type="text"
+    name="extra_guest_name"
+    placeholder="Extra Attendee Full Name"
+  >
+</div>
+
+
+  
 <input
   type="email"
   name="email"
@@ -846,6 +872,21 @@ button:hover {
   <option value="Will Attend">Will Attend</option>
   <option value="Cannot Attend">Sorry I can’t attend</option>
 </select>
+
+
+<script>
+  const guestsSelect = document.getElementById("guests");
+  const extraGuestField = document.getElementById("extraGuestField");
+
+  guestsSelect.addEventListener("change", () => {
+    if (guestsSelect.value === "2") {
+      extraGuestField.style.display = "block";
+    } else {
+      extraGuestField.style.display = "none";
+    }
+  });
+</script>
+
 
 
     <textarea name="message" placeholder="Message (optional)"></textarea>
