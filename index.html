@@ -1390,19 +1390,28 @@ modal.addEventListener("click", (e) => {
   const toggle = document.getElementById("musicToggle");
   let isPlaying = false;
 
-  // Attempt autoplay after first user interaction
-  document.addEventListener("click", () => {
+  // Auto‑play on first user interaction
+  const startMusic = () => {
     if (!isPlaying) {
       music.play().then(() => {
         isPlaying = true;
         toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
       }).catch(() => {});
     }
-  }, { once: true });
 
-  // Manual toggle
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+    document.removeEventListener("scroll", startMusic);
+  };
+
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
+  document.addEventListener("scroll", startMusic);
+
+  // Manual toggle button
   toggle.addEventListener("click", (e) => {
     e.stopPropagation();
+
     if (isPlaying) {
       music.pause();
       toggle.innerHTML = '<i class="fa-solid fa-music"></i>';
@@ -1410,6 +1419,7 @@ modal.addEventListener("click", (e) => {
       music.play();
       toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
     }
+
     isPlaying = !isPlaying;
   });
 </script>
