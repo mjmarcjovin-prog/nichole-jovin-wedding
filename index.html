@@ -20,6 +20,144 @@
 
 
 
+/* ✨ Background Sparkles */
+.sparkle {
+  position: fixed;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 212, 225, 0.9) 0%,
+    rgba(255, 212, 225, 0.4) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation-name: sparkleFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sparkleFloat {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Keep invite content above sparkles */
+.invite {
+  position: relative;
+  z-index: 2;
+}
+
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #fb6f92;
+  color: #fff;
+  border: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.music-btn:hover {
+  background: #ff8fab;
+  transform: scale(1.05);
+}
+
+
+
+
+
+
+.faq details {
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.faq details p {
+  animation: faqFade 0.4s ease;
+}
+
+@keyframes faqFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+#submitBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+#submitBtn::after {
+  content: "❤️";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 26px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: all 0.4s ease;
+}
+
+#submitBtn:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -90%) scale(1);
+}
+
+
+
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 182, 193, 0.8);
+  border-radius: 50%;
+  animation: sparkleFloat 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkleFloat {
+  from {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+
+/* Scroll Reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .faq-toggle-btn {
   margin-bottom: 1rem;
   padding: 8px 16px;
@@ -64,6 +202,8 @@
 .faq details[open] summary {
   color: #c4a76a;
 }
+
+
 
 
 body {
@@ -517,9 +657,86 @@ button:hover {
 </style>
 </head>
 
+
+
+
+
+<script>
+  const reveals = document.querySelectorAll('.section, .details');
+
+  function revealOnScroll() {
+    const height = window.innerHeight;
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < height - 80) {
+        el.classList.add('reveal', 'active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+<script>
+  setInterval(() => {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration = 4 + Math.random() * 3 + "s";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 7000);
+  }, 1200);
+</script>
+
+
+
+<audio id="bgMusic" loop>
+  <source src="music/wedding-song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+
 <body>
 
-  
+
+
+<button id="musicToggle" class="music-btn">
+  <i class="fa-solid fa-music"></i>
+</button>
+
+
+
+
+
+
+  <script>
+  const sparkleCount = 30;
+
+  for (let i = 0; i < sparkleCount; i++) {
+    createSparkle();
+  }
+
+  function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.animationDuration = 6 + Math.random() * 6 + "s";
+    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    sparkle.style.width = sparkle.style.height =
+      4 + Math.random() * 4 + "px";
+
+    document.body.appendChild(sparkle);
+
+    sparkle.addEventListener("animationend", () => {
+      sparkle.remove();
+      createSparkle();
+    });
+  }
+</script>
+
 
 <div class="invite">
   <h1>Nichole &amp; Jovin</h1>
@@ -821,14 +1038,20 @@ button:hover {
   const button = document.getElementById("toggleEntourage");
   const content = document.getElementById("entourageContent");
 
+  content.style.overflow = "hidden";
+  content.style.maxHeight = "0";
+
   button.addEventListener("click", () => {
-    if (content.style.display === "none") {
+    if (content.style.maxHeight === "0px") {
       content.style.display = "block";
+      content.style.maxHeight = content.scrollHeight + "px";
+      content.style.animation = "fadeIn 0.4s ease";
     } else {
-      content.style.display = "none";
+      content.style.maxHeight = "0";
     }
   });
 </script>
+
 
 
 <h3>GUEST RSVP</h3>
@@ -897,14 +1120,12 @@ button:hover {
     
 
 <button type="submit" id="submitBtn">
-  ❤️ Submit RSVP
+   Submit RSVP
 </button>
 
 
   </form>
 </div>
-
-
 
 
 
@@ -1162,6 +1383,36 @@ modal.addEventListener("click", (e) => {
 })();
 </script>
 
+
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
+  let isPlaying = false;
+
+  // Attempt autoplay after first user interaction
+  document.addEventListener("click", () => {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
+      }).catch(() => {});
+    }
+  }, { once: true });
+
+  // Manual toggle
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (isPlaying) {
+      music.pause();
+      toggle.innerHTML = '<i class="fa-solid fa-music"></i>';
+    } else {
+      music.play();
+      toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
+    }
+    isPlaying = !isPlaying;
+  });
+</script>
 
 </body>
 </html>
