@@ -17,8 +17,12 @@
 
 
 
-
-
+ h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin-bottom: 10px;
+}
 
 
 /* === IMAGE-MATCHED ENTOURAGE LAYOUT === */
@@ -176,6 +180,12 @@
 .faq details p {
   animation: faqFade 0.4s ease;
 }
+
+/* Hide all FAQ items initially */
+.faq details {
+  display: none;
+}
+
 
 @keyframes faqFade {
   from { opacity: 0; transform: translateY(8px); }
@@ -848,13 +858,11 @@ button:hover {
 
 
   <div class="section">
-    
-
-  <div class="section">
 
 <button id="toggleEntourage" class="toggle-btn">
   Entourage
 </button>
+
 
 
 <div id="entourageContent" class="section details">
@@ -882,29 +890,30 @@ button:hover {
       To Stand as Witness to Our Vows
     </div>
 
-    <div class="entourage-row">
-      <div class="entourage-col left">
-        Dr. Angel Trinidad<br>
-        Mr. Jeruel Agcaoili<br>
-        Mr. Pio Tiu<br>
-        Mr. James Laygo<br>
-        Mr. Samuel Lazo<br>
-        Mr. Rowald Rubino<br>
-        Mr. Ronald Rubino<br>
-        Mr. Kulyan Kapitan
-      </div>
 
-      <div class="entourage-col right">
-        Mrs. Celia Lazo<br>
-        Mrs. Marlyn L. See<br>
-        Dr. Maria Alioza H. Tiu<br>
-        Mrs. Josephine Manganey<br>
-        Mrs. Mylene Cataya<br>
-        Mrs. Evangeline Pagarigan<br>
-        Ms. Emer Rubino<br>
-        Mrs. Maribel Dacalan
-      </div>
-    </div>
+
+<p>Mrs. Judith & Dr. Angel Trinidad</p>
+<p>Mrs. Celia & Reynaldo Jr. Lazo</p>
+<p>Mrs. Magdalena & Mr. Samuel Lazo</p>
+<p>Dr. Maria Alioza & Mr. Pio Tiu</p>  
+<p>Mrs.Evangeline & Mr. Wenceslao Laygo</p>
+<p>Mrs. Lanie & Mr. James Laygo</p>
+<p>Mrs. Maribel & Mr. Marner Dacalan</p>
+<p>Mrs. Evangeline & Mr. Joe Pagarigan</p>
+<p>Mrs. Kulyana & Mr. Kulyan Kapitan</p>
+<p>Mrs. Leticia Laygo Belen</p>
+<p>Mrs. Rosemarie Lee</p>
+<p>Mrs. Marlyn L. See</p>
+<p>Mrs. Josephine Manganey</p>
+<p>Mrs. Mylene Cataya</p>
+<p>Ms. Emer Rubino</p>
+<p>Mr. Jeruel Agcaoili</p>
+<p>Mr. Rowald Rubino</p>
+<p>Mr. Ronald Rubino</p>
+
+
+
+    
 
     <!-- Best Man / Maid of Honor -->
     <div class="entourage-row">
@@ -939,7 +948,7 @@ button:hover {
       <div class="entourage-col right">
         <div class="entourage-heading">Bridesmaids</div>
         Mrs. Jhoanna T. Dasalla<br>
-        Ms. Cenne Ma. Patricia T. Talbo
+        Ms. Patricia T. Talbo
       </div>
     </div>
 
@@ -1000,7 +1009,7 @@ button:hover {
 
 
 
-  }
+  
 </style>
 
 
@@ -1022,7 +1031,8 @@ button:hover {
   });
 </script>
 
-<h2>Venue</h2>
+<h2>Reception Venue</h2>
+
 
 <a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
       <i class="fa-solid fa-church"></i> Church Location
@@ -1042,7 +1052,7 @@ button:hover {
   </p>
 
 <!-- Principal Sponsors Attire -->
-<div class="section details">
+<div>
   <h2>Principal Sponsors Attire</h2>
   <p class="small center">
     Kindly use this as your guide for the Principal Sponsors' formal attire.
@@ -1061,8 +1071,6 @@ button:hover {
 
 
   <h4 class="center">Guest Attire</h4>
-  <p class="center"><strong>STRICTLY FORMAL</strong></p>
-<p class="small"><strong>Strictly no white dress</strong></p>
   
   <div class="grid-2">
     <div>
@@ -1082,8 +1090,10 @@ button:hover {
   </h4>
 
   <p class="small center">
-    We encourage our guests to dress according to our color palette below
+    We encourage our guests to dress according to our color palette below, STRICTLY FORMAL and STRICTLY NO WHITE DRESS.
   </p>
+
+ 
 
 <div class="attire-illustration">
   <img
@@ -1146,7 +1156,7 @@ button:hover {
   <li>🎉 <strong>9:00 PM</strong> – After Party</li>
 </ul>
 
-
+<div class="section"></div>
 
 
 <h3>GUEST RSVP</h3>
@@ -1425,25 +1435,21 @@ modal.addEventListener("click", (e) => {
 <script>
   const toggleBtn = document.getElementById('toggleAllFaqs');
   const allDetails = document.querySelectorAll('.faq details');
+  let faqsVisible = false;
 
   toggleBtn.addEventListener('click', () => {
-    const shouldOpen = toggleBtn.textContent === 'FAQs';
+    faqsVisible = !faqsVisible;
 
     allDetails.forEach(detail => {
-      detail.open = shouldOpen;
+      detail.style.display = faqsVisible ? 'block' : 'none';
+      detail.open = false; // collapse answers when hiding
     });
 
-    if (shouldOpen && allDetails.length > 0) {
-      // Smooth scroll to first FAQ
-      allDetails[0].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+    toggleBtn.textContent = faqsVisible ? 'Hide FAQs' : 'FAQs';
 
-    toggleBtn.textContent = shouldOpen
-      ? 'Collapse all'
-      : 'FAQs';
+    if (faqsVisible && allDetails.length) {
+      allDetails[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 </script>
 
