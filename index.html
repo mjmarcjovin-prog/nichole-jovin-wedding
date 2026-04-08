@@ -13,11 +13,94 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
+
+
+
+
+
+
+
+
+/* === IMAGE-MATCHED ENTOURAGE LAYOUT === */
+.entourage-wrapper {
+  width: 100%;
+  margin-top: 16px;
+  font-family: "Playfair Display", serif;
+}
+
+.entourage-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.entourage-col {
+  width: 45%;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #555;
+}
+
+.entourage-col.left {
+  text-align: right;
+}
+
+.entourage-col.right {
+  text-align: left;
+}
+
+.entourage-heading {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.entourage-center-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 18px 0 4px;
+  color: #000;
+}
+
+.entourage-center-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+/* Mobile stacking */
+@media (max-width: 480px) {
+  .entourage-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .entourage-col {
+    width: 100%;
+    text-align: center !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-
 
 
 /* ✨ Background Sparkles */
@@ -776,75 +859,92 @@ button:hover {
 
 <div id="entourageContent" class="section details">
 
-  <h2></h2>
+  <div class="entourage-wrapper">
 
-  <div class="grid-2">
-    <div>
-      <h4>Parents Groom</h4>
-      <p>Mr. Leonardo P. Rubino</p>
-      <p>Mrs. Marivic R. Pedro</p>
+    <!-- Parents -->
+    <div class="entourage-row">
+      <div class="entourage-col left">
+        <div class="entourage-heading">Parents Groom</div>
+        Mr. Leonardo P. Rubino<br>
+        Mrs. Marivic R. Pedro
+      </div>
+
+      <div class="entourage-col right">
+        <div class="entourage-heading">Parents Bride</div>
+        Mr. Dionisio L. Tiu<br>
+        Mrs. Lanie B. Tiu
+      </div>
     </div>
 
-    <div>
-      <h4>Parents Bride</h4>
-      <p>Mr. Dionisio L. Tiu</p>
-      <p>Mrs. Lanie B. Tiu</p>
+    <!-- Principal Sponsors -->
+    <div class="entourage-center-title">Principal Sponsors</div>
+    <div class="entourage-center-subtitle">
+      To Stand as Witness to Our Vows
     </div>
-  </div>
 
-  <h4 class="center">Principal Sponsors</h4>
-  <p class="small center">To Stand as Witness to Our Vows</p>
+    <div class="entourage-row">
+      <div class="entourage-col left">
+        Dr. Angel Trinidad<br>
+        Mr. Jeruel Agcaoili<br>
+        Mr. Pio Tiu<br>
+        Mr. James Laygo<br>
+        Mr. Samuel Lazo<br>
+        Mr. Rowald Rubino<br>
+        Mr. Ronald Rubino<br>
+        Mr. Kulyan Kapitan
+      </div>
 
-  <div class="grid-2">
-    <p>Dr. Angel Trinidad</p>
-    <p>Mrs. Celia Lazo</p>
-    <p>Mr. Jeruel Agcaoili</p>
-    <p>Mrs. Marlyn L. See</p>
-    <p>Mr. Pio Tiu</p>
-    <p>Dr. Maria Alioza H. Tiu</p>
-    <p>Mr. James Laygo</p>
-    <p>Mrs. Josephine Manganey</p>
-    <p>Mr. Samuel Lazo</p>
-    <p>Mrs. Mylene Cataya</p>
-    <p>Mr. Rowald Rubino</p>
-    <p>Mrs. Evangeline Pagarigan</p>
-    <p>Mr. Ronald Rubino</p>
-    <p>Ms. Emer Rubino</p>
-    <p>Mr. Kulyan Kapitan</p>
-    <p>Mrs. Maribel Dacalan</p>
-  </div>
-
-  <div class="grid-2">
-    <div>
-      <h4>Best Man</h4>
-      <p>Mr. Rodrigo Biri</p>
+      <div class="entourage-col right">
+        Mrs. Celia Lazo<br>
+        Mrs. Marlyn L. See<br>
+        Dr. Maria Alioza H. Tiu<br>
+        Mrs. Josephine Manganey<br>
+        Mrs. Mylene Cataya<br>
+        Mrs. Evangeline Pagarigan<br>
+        Ms. Emer Rubino<br>
+        Mrs. Maribel Dacalan
+      </div>
     </div>
-    <div>
-      <h4>Maid of Honor</h4>
-      <p>Ms. Francene Tiu</p>
-    </div>
-  </div>
 
-  <h4 class="center">Secondary Sponsors</h4>
+    <!-- Best Man / Maid of Honor -->
+    <div class="entourage-row">
+      <div class="entourage-col left">
+        <div class="entourage-heading">Best Man</div>
+        Mr. Rodrigo Biri
+      </div>
+
+      <div class="entourage-col right">
+        <div class="entourage-heading">Maid of Honor</div>
+        Ms. Francene Tiu
+      </div>
+    </div>
+
+
+<h4 class="center">Secondary Sponsors</h4>
 
   <p><strong>Candle</strong><br>Mr. Russel B. Trapsi<br>Ms. Abbygail Garcia</p>
   <p><strong>Veil</strong><br>Mr. Wynzel Augustin<br>Ms. Fei B. Trapsi</p>
   <p><strong>Cord</strong><br>Mr. James Lloyd Rubino<br>Ms. YZ Augustin</p>
 
-  <div class="grid-2">
-    <div>
-      <h4>Groomsmen</h4>
-      <p>Mr. Carl Rubino</p>
-      <p>Mr. Ezekiel Rubino</p>
-    </div>
-    <div>
-      <h4>Bridesmaids</h4>
-      <p>Mrs. Jhoanna T. Dasalla</p>
-      <p>Ms. Cenne Ma. Patricia T. Talbo</p>
-    </div>
-  </div>
 
-  <h4 class="center">Bearers</h4>
+
+    <!-- Groomsmen / Bridesmaids -->
+    <div class="entourage-row">
+      <div class="entourage-col left">
+        <div class="entourage-heading">Groomsmen</div>
+        Mr. Carl Rubino<br>
+        Mr. Ezekiel Rubino
+      </div>
+
+      <div class="entourage-col right">
+        <div class="entourage-heading">Bridesmaids</div>
+        Mrs. Jhoanna T. Dasalla<br>
+        Ms. Cenne Ma. Patricia T. Talbo
+      </div>
+    </div>
+
+
+<h4 class="center">Bearers</h4>
   <p><strong>Ring Bearer</strong><br>TJ B. Tamayo</p>
   <p><strong>Bible Bearer</strong><br>Daniel Rubino</p>
   <p><strong>Coin Bearer</strong><br>Cenon Miguel R. Tiu</p>
@@ -853,6 +953,9 @@ button:hover {
   <p>Kristien B. Tamayo</p>
   <p>Zoe Shane T. Dasalla</p>
 
+
+
+  </div>
 </div>
 
 
