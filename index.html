@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>Nichole & Jovin | Wedding Invitation</title>
+<title>Jovin & Nichole | Wedding Invitation</title>
 
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -91,16 +91,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -168,6 +158,26 @@
 }
 
 
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* ✅ centers the text */
+  gap: 15px;
+
+  margin: 0 auto 20px;     /* ✅ centers the button horizontally */
+  padding: 12px 22px;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #fb6f92, #ff8fab);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+
+  box-shadow: 0 10px 24px rgba(251,111,146,0.35);
+  transition: all 0.35s ease;
+  animation: softPulse 3s infinite;
+}
 
 
 
@@ -237,7 +247,65 @@
   }
 }
 
+/* =============================
+   Venue Link Animations
+   ============================= */
 
+.venue-links {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Base style */
+.venue-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: #ffe4e6;
+  color: #fb6f92;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: venueFadeUp 0.8s ease forwards;
+}
+
+/* Staggered entrance */
+.venue-link.reception {
+  animation-delay: 0.25s;
+}
+
+/* Icon bounce */
+.venue-link i {
+  animation: iconFloat 2.4s ease-in-out infinite;
+}
+
+/* Hover lift + glow */
+.venue-link:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 12px 28px rgba(251, 111, 146, 0.35),
+    0 0 18px rgba(251, 111, 146, 0.35);
+}
+
+/* Entrance animation */
+@keyframes venueFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle icon float */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
 
 /* Scroll Reveal */
 .reveal {
@@ -250,6 +318,57 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+
+/* === Animated Entourage Button === */
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #fb6f92, #ff8fab);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(251,111,146,0.35);
+  transition: all 0.35s ease;
+  animation: softPulse 3s infinite;
+}
+
+.toggle-btn i {
+  transition: transform 0.4s ease;
+}
+
+/* Hover lift */
+.toggle-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 34px rgba(251,111,146,0.45);
+}
+
+/* Active (open) state */
+.toggle-btn.active {
+  background: linear-gradient(135deg, #ff8fab, #fb6f92);
+  animation: none;
+}
+
+/* Rotate chevron when open */
+.toggle-btn.active i {
+  transform: rotate(180deg);
+}
+
+/* Subtle pulse animation */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+}
+
+
 
 .faq-toggle-btn {
   margin-bottom: 1rem;
@@ -296,7 +415,15 @@
   color: #c4a76a;
 }
 
-
+.color-label {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  min-height: 18px;
+  transition: opacity 0.3s ease;
+}
 
 
 body {
@@ -552,6 +679,24 @@ input, select, textarea {
 }
 
 
+.faq-link {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4a76a;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.faq-link:hover {
+  color: #a88f57;
+  text-decoration: underline;
+}
+
 .color-palette {
   display: flex;
   justify-content: center;
@@ -616,6 +761,36 @@ input, select, textarea {
   opacity: 0;
   transition: opacity 0.25s ease;
 }
+
+/* Tap Tooltip */
+.color-tooltip {
+  position: absolute;
+  background: rgba(44, 44, 44, 0.92);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2000;
+}
+
+/* Tooltip arrow */
+.color-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(44, 44, 44, 0.92);
+}
+
+
 
 /* Show tooltip on hover / focus */
 .color-palette span:hover::after,
@@ -682,7 +857,25 @@ input, select, textarea {
 }
 
 
+/* Selected color with dynamic glow */
+.color-palette span.active {
+  outline: 2px solid var(--glow-color);
+  outline-offset: 4px;
+  transform: scale(1.18);
 
+  box-shadow:
+    0 0 0 4px var(--glow-soft),
+    0 0 18px var(--glow-strong),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Smooth animation */
+.color-palette span {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    outline 0.25s ease;
+}
 
 /* Stagger animation timing */
 .color-palette span:nth-child(1) { animation-delay: 0.1s; }
@@ -825,7 +1018,7 @@ button:hover {
 
 <!-- 🎥 Background Video -->
 <video class="video-bg" autoplay muted loop playsinline>
-  <source src="images/new1.mp4" type="video/mp4">
+  <source src="images/sakura.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -874,7 +1067,7 @@ button:hover {
 
 
 <div class="invite">
-  <h1>Nichole &amp; Jovin</h1>
+  <h1>Jovin &amp; Nichole</h1>
   <div class="subtitle">Together with our families</div>
   <div class="date">October 10, 2026 | 2:00 PM</div>
 
@@ -902,7 +1095,8 @@ button:hover {
   <div class="section">
 
 <button id="toggleEntourage" class="toggle-btn">
-  Entourage
+  <span class="btn-text">Entourage</span>
+  <i class="fa-solid "></i>
 </button>
 
 
@@ -1058,32 +1252,61 @@ button:hover {
 <script>
   const button = document.getElementById("toggleEntourage");
   const content = document.getElementById("entourageContent");
+  const btnText = button.querySelector(".btn-text");
 
   content.style.overflow = "hidden";
   content.style.maxHeight = "0";
 
   button.addEventListener("click", () => {
-    if (content.style.maxHeight === "0px") {
+    const isOpen = content.style.maxHeight !== "0px";
+
+    if (!isOpen) {
       content.style.display = "block";
       content.style.maxHeight = content.scrollHeight + "px";
-      content.style.animation = "fadeIn 0.4s ease";
+      button.classList.add("active");
+      btnText.textContent = "Hide Entourage";
     } else {
       content.style.maxHeight = "0";
+      button.classList.remove("active");
+      btnText.textContent = "Entourage";
     }
   });
 </script>
 
-<h2>Reception Venue</h2>
 
 
-<a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
-      <i class="fa-solid fa-church"></i> Church Location
-    </a>
-    <a target="_blank" href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel/@17.6212671,120.3926237,18.5z/data=!4m9!3m8!1s0x338e65b70b4cea4b:0xfc08ca958eb83351!5m2!4m1!1i2!8m2!3d17.6221359!4d120.3922139!16s%2Fg%2F11stl4b1n7?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
-      <i class="fa-solid fa-location-dot"></i> Wedding Venue
-    </a>
+<h2>Venue</h2>
 
+<div class="venue-links reveal-venue">
+  <a target="_blank"
+     href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church..."
+     class="venue-link church">
+    <i class="fa-solid fa-church"></i> <strong>Church Location</strong><br>St. Dominic of Guzman Parish Church - Nalasin, Santo Domingo, Ilocos Sur 
+  </a>
 
+  <a target="_blank"
+     href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel..."
+     class="venue-link reception">
+    <i class="fa-solid fa-location-dot"></i> <strong>Reception Venue</strong><br>Selah Vie Resort Hotel, San Ildefonso, Ilocos Sur
+  </a>
+</div>
+
+<script>
+  const venueLinks = document.querySelectorAll(".venue-link");
+
+  function revealVenues() {
+    const height = window.innerHeight;
+    venueLinks.forEach(link => {
+      const top = link.getBoundingClientRect().top;
+      if (top < height - 100) {
+        link.style.animationPlayState = "running";
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealVenues);
+  revealVenues();
+</script>
 
 <div class="section details attire">
   <h2>Attire</h2>
@@ -1148,27 +1371,54 @@ button:hover {
 
 
   <div class="color-palette">
-    <span style="background:#C46A3B;"></span>
-    <span style="background:#B07A73;"></span>
-    <span style="background:#D48B7D;"></span>
-    <span style="background:#F2DFC9;"></span>
-    <span style="background:#F6E9D8;"></span>
-    <span style="background:#9E564F;"></span>
-  </div>
-
-  
+  <span style="background:#C46A3B;" data-name="Rust Brown"></span>
+  <span style="background:#B07A73;" data-name="Dusty Rose"></span>
+  <span style="background:#D48B7D;" data-name="Muted Coral"></span>
+  <span style="background:#F2DFC9;" data-name="Champagne Beige"></span>
+  <span style="background:#F6E9D8;" data-name="Ivory Cream"></span>
+  <span style="background:#9E564F;" data-name="Wine Rose"></span>
 </div>
 
+<!-- label -->
+<div id="colorLabel" class="color-label"></div>
 
-    
+  
+<script>
+  const colorLabel = document.getElementById("colorLabel");
+  const colors = document.querySelectorAll(".color-palette span");
+
+  colors.forEach(span => {
+    span.addEventListener("click", () => {
+      // Remove highlight from all
+      colors.forEach(c => {
+        c.classList.remove("active");
+        c.style.removeProperty("--glow-color");
+        c.style.removeProperty("--glow-soft");
+        c.style.removeProperty("--glow-strong");
+      });
+
+      // Get the swatch color
+      const bgColor = getComputedStyle(span).backgroundColor;
+
+      // Apply glow variables
+      span.style.setProperty("--glow-color", bgColor);
+      span.style.setProperty("--glow-soft", bgColor.replace("rgb", "rgba").replace(")", ", 0.25)"));
+      span.style.setProperty("--glow-strong", bgColor.replace("rgb", "rgba").replace(")", ", 0.7)"));
+
+      // Activate highlight
+      span.classList.add("active");
+
+      // Show label
+      colorLabel.textContent = span.dataset.name;
+      colorLabel.style.opacity = "1";
+    });
+  });
+</script>
+
+
+
+</div> 
   </div>
-
-
-
-
-
-
-
 
 
 <script>
@@ -1181,7 +1431,6 @@ button:hover {
     modalImg.src = principalImg.src;
   });
 </script>
-
 
 
 <!-- Wedding Day Timeline -->
@@ -1237,6 +1486,8 @@ button:hover {
   placeholder="Your Email Address"
 />
 
+
+
 <select name="attending" id="attending" required>
   <option value="">-- Please Choose --</option>
   <option value="Will Attend">Will Attend</option>
@@ -1279,10 +1530,10 @@ button:hover {
 <!-- OTHER DETAILS -->
 <div class="other-details">
 
-  <h4 class="center">Other Details</h4>
 
-  <details open>
-    <summary>GIFT GUIDE</summary>
+
+  
+    <summary><br>GIFT GUIDE</summary>
     <p>
       As love is what the day is all about, your presence is one we can’t celebrate without.
       But should you still believe a gift is worth giving, a
@@ -1294,28 +1545,31 @@ button:hover {
       <img src="images/QRcode.jpg" alt="Nichole and Jovin QR Code">
       <small>Please scan this QR code.</small>
     </div>
-  </details>
+  
 
-  <details>
-    <summary>SNAP &amp; SHARE</summary>
-    <p>
-      You may capture and share your favourite moments during our wedding day.
-      Don’t forget to tag us! Your photos will add to the memories we cherish.
-    </p>
-  </details>
 
+
+  <div>
+<div class="section details faq">
+  <h4 class="center">SNAP &amp; SHARE</h4>
+
+  <p>
+    You may capture and share your favorite moments during our wedding day.
+    Don’t forget to tag us! Your photos and videos will add to the memories
+    we will forever cherish.
+  </p>
 </div>
-
-
-
+</div>
+</div>
 
 
 <div class="section details faq">
   <h2></h2>
 
-  <button id="toggleAllFaqs" class="faq-toggle-btn">
-    FAQs
-  </button>
+  <a href="javascript:void(0)" id="toggleAllFaqs" class="faq-link">
+  FAQs
+</a>
+
 
   <details>
     <summary>WHEN SHOULD I RSVP BY?</summary>
