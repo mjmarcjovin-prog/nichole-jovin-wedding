@@ -158,21 +158,28 @@
 }
 
 
-
-.entourage-btn-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-
-button {
-  width: 100%;
-}
-
-
 .toggle-btn {
-  width: auto;           /* ← key fix */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* ✅ centers the text */
+  gap: 10px;
+
+  margin: 0 auto 20px;     /* ✅ centers the button horizontally */
+  padding: 12px 22px;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #fb6f92, #ff8fab);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+
+  box-shadow: 0 10px 24px rgba(251,111,146,0.35);
+  transition: all 0.35s ease;
+  animation: softPulse 3s infinite;
 }
+
+
 
 
 .faq details {
@@ -1087,14 +1094,10 @@ button:hover {
 
   <div class="section">
 
-
-<div class="entourage-btn-wrapper">
-  <button id="toggleEntourage" class="toggle-btn">
-    <span class="btn-text">Entourage</span>
-    <i class="fa-solid"></i>
-  </button>
-</div>
-
+<button id="toggleEntourage" class="toggle-btn">
+  <span class="btn-text">Entourage</span>
+  <i class="fa-solid "></i>
+</button>
 
 
 
