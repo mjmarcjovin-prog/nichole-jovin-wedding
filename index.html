@@ -296,7 +296,15 @@
   color: #c4a76a;
 }
 
-
+.color-label {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  min-height: 18px;
+  transition: opacity 0.3s ease;
+}
 
 
 body {
@@ -552,6 +560,24 @@ input, select, textarea {
 }
 
 
+.faq-link {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4a76a;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.faq-link:hover {
+  color: #a88f57;
+  text-decoration: underline;
+}
+
 .color-palette {
   display: flex;
   justify-content: center;
@@ -616,6 +642,36 @@ input, select, textarea {
   opacity: 0;
   transition: opacity 0.25s ease;
 }
+
+/* Tap Tooltip */
+.color-tooltip {
+  position: absolute;
+  background: rgba(44, 44, 44, 0.92);
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  border-radius: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 2000;
+}
+
+/* Tooltip arrow */
+.color-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(44, 44, 44, 0.92);
+}
+
+
 
 /* Show tooltip on hover / focus */
 .color-palette span:hover::after,
@@ -682,7 +738,25 @@ input, select, textarea {
 }
 
 
+/* Selected color with dynamic glow */
+.color-palette span.active {
+  outline: 2px solid var(--glow-color);
+  outline-offset: 4px;
+  transform: scale(1.18);
 
+  box-shadow:
+    0 0 0 4px var(--glow-soft),
+    0 0 18px var(--glow-strong),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Smooth animation */
+.color-palette span {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    outline 0.25s ease;
+}
 
 /* Stagger animation timing */
 .color-palette span:nth-child(1) { animation-delay: 0.1s; }
@@ -1148,27 +1222,54 @@ button:hover {
 
 
   <div class="color-palette">
-    <span style="background:#C46A3B;"></span>
-    <span style="background:#B07A73;"></span>
-    <span style="background:#D48B7D;"></span>
-    <span style="background:#F2DFC9;"></span>
-    <span style="background:#F6E9D8;"></span>
-    <span style="background:#9E564F;"></span>
-  </div>
-
-  
+  <span style="background:#C46A3B;" data-name="Rust Brown"></span>
+  <span style="background:#B07A73;" data-name="Dusty Rose"></span>
+  <span style="background:#D48B7D;" data-name="Muted Coral"></span>
+  <span style="background:#F2DFC9;" data-name="Champagne Beige"></span>
+  <span style="background:#F6E9D8;" data-name="Ivory Cream"></span>
+  <span style="background:#9E564F;" data-name="Wine Rose"></span>
 </div>
 
+<!-- label -->
+<div id="colorLabel" class="color-label"></div>
 
-    
+  
+<script>
+  const colorLabel = document.getElementById("colorLabel");
+  const colors = document.querySelectorAll(".color-palette span");
+
+  colors.forEach(span => {
+    span.addEventListener("click", () => {
+      // Remove highlight from all
+      colors.forEach(c => {
+        c.classList.remove("active");
+        c.style.removeProperty("--glow-color");
+        c.style.removeProperty("--glow-soft");
+        c.style.removeProperty("--glow-strong");
+      });
+
+      // Get the swatch color
+      const bgColor = getComputedStyle(span).backgroundColor;
+
+      // Apply glow variables
+      span.style.setProperty("--glow-color", bgColor);
+      span.style.setProperty("--glow-soft", bgColor.replace("rgb", "rgba").replace(")", ", 0.25)"));
+      span.style.setProperty("--glow-strong", bgColor.replace("rgb", "rgba").replace(")", ", 0.7)"));
+
+      // Activate highlight
+      span.classList.add("active");
+
+      // Show label
+      colorLabel.textContent = span.dataset.name;
+      colorLabel.style.opacity = "1";
+    });
+  });
+</script>
+
+
+
+</div> 
   </div>
-
-
-
-
-
-
-
 
 
 <script>
@@ -1181,7 +1282,6 @@ button:hover {
     modalImg.src = principalImg.src;
   });
 </script>
-
 
 
 <!-- Wedding Day Timeline -->
@@ -1236,6 +1336,8 @@ button:hover {
   required
   placeholder="Your Email Address"
 />
+
+
 
 <select name="attending" id="attending" required>
   <option value="">-- Please Choose --</option>
@@ -1313,9 +1415,10 @@ button:hover {
 <div class="section details faq">
   <h2></h2>
 
-  <button id="toggleAllFaqs" class="faq-toggle-btn">
-    FAQs
-  </button>
+  <a href="javascript:void(0)" id="toggleAllFaqs" class="faq-link">
+  FAQs
+</a>
+
 
   <details>
     <summary>WHEN SHOULD I RSVP BY?</summary>
