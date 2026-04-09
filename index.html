@@ -237,7 +237,65 @@
   }
 }
 
+/* =============================
+   Venue Link Animations
+   ============================= */
 
+.venue-links {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Base style */
+.venue-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: #ffe4e6;
+  color: #fb6f92;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: venueFadeUp 0.8s ease forwards;
+}
+
+/* Staggered entrance */
+.venue-link.reception {
+  animation-delay: 0.25s;
+}
+
+/* Icon bounce */
+.venue-link i {
+  animation: iconFloat 2.4s ease-in-out infinite;
+}
+
+/* Hover lift + glow */
+.venue-link:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 12px 28px rgba(251, 111, 146, 0.35),
+    0 0 18px rgba(251, 111, 146, 0.35);
+}
+
+/* Entrance animation */
+@keyframes venueFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle icon float */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
 
 /* Scroll Reveal */
 .reveal {
@@ -1147,17 +1205,39 @@ button:hover {
   });
 </script>
 
-<h2>Reception Venue</h2>
 
+<h2>Venue</h2>
 
-<a target="_blank" href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia),+Manila+North+Road,+Sto.+Domingo,+2729+Ilocos+Sur/@17.6372306,120.4244207,14.75z/data=!4m17!1m8!3m7!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2sSt.+Dominic+of+Guzman+Parish+Church+-+Nalasin,+Santo+Domingo,+Ilocos+Sur+(Archdiocese+of+Nueva+Segovia)!8m2!3d17.6379252!4d120.4103923!15sCiNTdC4gRG9taW5pYyBvZiBHdXptYW4gUGFyaXNoIENodXJjaJIBD2NhdGhvbGljX2NodXJjaOABAA!16s%2Fg%2F1pzqc0gb0!4m7!1m0!1m5!1m1!1s0x338e64753f16ebb5:0x1b1f6b13964124bf!2m2!1d120.4103923!2d17.6379252?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
-      <i class="fa-solid fa-church"></i> Church Location
-    </a>
-    <a target="_blank" href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel/@17.6212671,120.3926237,18.5z/data=!4m9!3m8!1s0x338e65b70b4cea4b:0xfc08ca958eb83351!5m2!4m1!1i2!8m2!3d17.6221359!4d120.3922139!16s%2Fg%2F11stl4b1n7?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D">
-      <i class="fa-solid fa-location-dot"></i> Wedding Venue
-    </a>
+<div class="venue-links reveal-venue">
+  <a target="_blank"
+     href="https://www.google.com/maps/dir//JCQ6%2B55C+St.+Dominic+of+Guzman+Parish+Church..."
+     class="venue-link church">
+    <i class="fa-solid fa-church"></i> Church Location
+  </a>
 
+  <a target="_blank"
+     href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel..."
+     class="venue-link reception">
+    <i class="fa-solid fa-location-dot"></i> Reception Venue
+  </a>
+</div>
 
+<script>
+  const venueLinks = document.querySelectorAll(".venue-link");
+
+  function revealVenues() {
+    const height = window.innerHeight;
+    venueLinks.forEach(link => {
+      const top = link.getBoundingClientRect().top;
+      if (top < height - 100) {
+        link.style.animationPlayState = "running";
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealVenues);
+  revealVenues();
+</script>
 
 <div class="section details attire">
   <h2>Attire</h2>
@@ -1398,18 +1478,20 @@ button:hover {
     </div>
   </details>
 
-  <details>
-    <summary>SNAP &amp; SHARE</summary>
-    <p>
-      You may capture and share your favourite moments during our wedding day.
-      Don’t forget to tag us! Your photos will add to the memories we cherish.
-    </p>
-  </details>
 
+
+  <div>
+<div class="section details faq">
+  <h4 class="center">SNAP &amp; SHARE</h4>
+
+  <p>
+    You may capture and share your favorite moments during our wedding day.
+    Don’t forget to tag us! Your photos and videos will add to the memories
+    we will forever cherish.
+  </p>
 </div>
-
-
-
+</div>
+</div>
 
 
 <div class="section details faq">
