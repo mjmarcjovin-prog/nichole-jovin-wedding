@@ -159,7 +159,20 @@
 
 
 
+.entourage-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
 
+
+button {
+  width: 100%;
+}
+
+
+.toggle-btn {
+  width: auto;           /* ← key fix */
+}
 
 
 .faq details {
@@ -1074,10 +1087,14 @@ button:hover {
 
   <div class="section">
 
-<button id="toggleEntourage" class="toggle-btn">
-  <span class="btn-text">Entourage</span>
-  <i class="fa-solid fa-chevron-down"></i>
-</button>
+
+<div class="entourage-btn-wrapper">
+  <button id="toggleEntourage" class="toggle-btn">
+    <span class="btn-text">Entourage</span>
+    <i class="fa-solid"></i>
+  </button>
+</div>
+
 
 
 
