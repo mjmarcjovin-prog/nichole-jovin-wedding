@@ -14,7 +14,24 @@
 
 <style>
 
+.hero-reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(24px);
+  animation: heroReveal 1.2s ease forwards;
+}
 
+.hero-reveal.delay-1 { animation-delay: 0.4s; }
+.hero-reveal.delay-2 { animation-delay: 0.7s; }
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+``
 
 
  h2 {
@@ -134,12 +151,17 @@
   z-index: 2;
 }
 
+.entourage-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 .music-btn {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #fb6f92;
+  background: #ece7e8;
   color: #fff;
   border: none;
   width: 54px;
@@ -151,40 +173,160 @@
   z-index: 9999;
   transition: background 0.3s ease, transform 0.3s ease;
 }
+/* ===============================
+   🎵 MUSIC BUTTON – ADVANCED FX
+   =============================== */
+
+.music-btn {
+  overflow: visible;
+}
+
+/* --- MINI EQUALIZER --- */
+.eq {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3px;
+}
+
+.eq span {
+  width: 4px;
+  height: 8px;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0.85;
+  animation: eqMove 1s infinite ease-in-out;
+}
+
+.eq span:nth-child(1) { animation-delay: 0s; }
+.eq span:nth-child(2) { animation-delay: .15s; }
+.eq span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes eqMove {
+  0%, 100% { height: 6px; }
+  50% { height: 14px; }
+}
+
+/* --- BPM SYNCED PULSE --- */
+.music-btn.playing {
+  animation: bpmPulse var(--bpm) ease-in-out infinite;
+}
+
+@keyframes bpmPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* --- FLOATING MUSIC NOTES --- */
+.music-note {
+  position: fixed;
+  font-size: 16px;
+  color: rgba(255, 182, 193, 0.85);
+  pointer-events: none;
+  animation: noteFloat 3s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes noteFloat {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-20px, -120px) scale(1.3);
+  }
+}
+.music-btn.playing {
+  animation: bpmPulse var(--bpm) ease-in-out infinite;
+}
+/* --- PAUSED STATE --- */
+.music-btn.paused {
+  animation: pausedWiggle 0.4s ease;
+}
+
+@keyframes pausedWiggle {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Stop EQ when paused */
+.music-btn.paused .eq span {
+  animation: none;
+  height: 4px;
+  opacity: 0.5;
+}
+``
+
+
+
+.music-btn.playing i {
+  animation: musicSpin 4s linear infinite;
+}
+
+/* Ring sound wave */
+.music-btn.playing::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 182, 193, 0.6);
+  animation: soundWave 1.8s ease-out infinite;
+}
+
+/* Pulse glow */
+@keyframes musicPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(251,111,146,0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(251,111,146,0.35),
+      0 0 22px rgba(251,111,146,0.65);
+  }
+}
+
+/* Slow icon rotation */
+@keyframes musicSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Expanding ring */
+@keyframes soundWave {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
 
 .music-btn:hover {
-  background: #ff8fab;
+  background: #ff8fac;
   transform: scale(1.05);
 }
 
 
-.toggle-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center; /* ✅ centers the text */
-  gap: 15px;
 
-  margin: 0 auto 20px;     /* ✅ centers the button horizontally */
-  padding: 12px 22px;
-  border-radius: 30px;
 
-  background: linear-gradient(135deg, #fb6f92, #ff8fab);
-  color: #fff;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-
-  box-shadow: 0 10px 24px rgba(251,111,146,0.35);
-  transition: all 0.35s ease;
-  animation: softPulse 3s infinite;
+body {
+  color: #555;
 }
 
-/* 🔥 Force all text to blush pink */
-*,
-*::before,
-*::after {
-  color: #fb6f92 !important;
+h1, h2, h3,
+.section a,
+.date {
+  color: #fb6f92;
 }
+
 
 i,
 .fa-solid,
@@ -212,11 +354,6 @@ i,
   color: #ffffff !important;
 }
 
-*,
-*::before,
-*::after {
-  color: #fb6f92 !important;
-}
 
 .faq details {
   overflow: hidden;
@@ -262,26 +399,7 @@ i,
 
 
 
-.sparkle {
-  position: fixed;
-  width: 6px;
-  height: 6px;
-  background: rgba(255, 182, 193, 0.8);
-  border-radius: 50%;
-  animation: sparkleFloat 6s linear infinite;
-  pointer-events: none;
-}
 
-@keyframes sparkleFloat {
-  from {
-    transform: translateY(100vh) scale(0.8);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-10vh) scale(1.2);
-    opacity: 0;
-  }
-}
 
 /* =============================
    Venue Link Animations
@@ -343,101 +461,172 @@ i,
   50% { transform: translateY(-3px); }
 }
 
-/* Scroll Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s ease;
+  transform: translateY(30px) translateX(-8px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateX(0);
+}
+.entourage-wrapper p {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: nameCascade 0.5s ease forwards;
+}
+.time-box span {
+  display: inline-block;
 }
 
+.time-box span.tick {
+  animation: tickPop 0.3s ease;
+}
+
+@keyframes tickPop {
+  50% { transform: scale(1.08); }
+}
+.venue-link.church {
+  transform: translateX(-20px);
+}
+
+.venue-link.reception {
+  transform: translateX(20px);
+}
+
+.venue-link {
+  opacity: 0;
+  animation: venueReveal 0.8s ease forwards;
+}
+
+@keyframes venueReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.video-bg {
+  animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.entourage-wrapper p:nth-child(n) {
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+@keyframes nameCascade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* === Animated Entourage Button === */
 .toggle-btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 12px 22px;
+
+  margin: 0 auto 22px;
+  padding: 12px 26px;
   border-radius: 30px;
+
   background: linear-gradient(135deg, #fb6f92, #ff8fab);
-  color: #fff;
+  color: #ffffff;
+
   font-size: 15px;
   font-weight: 500;
+  letter-spacing: 0.02em;
+
   cursor: pointer;
+  border: none;
+
   box-shadow: 0 10px 24px rgba(251,111,146,0.35);
-  transition: all 0.35s ease;
-  animation: softPulse 3s infinite;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+
+  animation: entouragePulse 3s ease-in-out infinite;
 }
 
+.btn-text {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Icon animation */
 .toggle-btn i {
   transition: transform 0.4s ease;
 }
 
-/* Hover lift */
+/* ✨ Sparkle Burst Particles */
+.sparkle-burst {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 212, 225, 1) 0%,
+    rgba(255, 140, 170, 0.8) 40%,
+    transparent 70%
+  );
+  animation: sparkleBurst 900ms ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkleBurst {
+  from {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Hover effect */
 .toggle-btn:hover {
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 14px 34px rgba(251,111,146,0.45);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 14px 36px rgba(251,111,146,0.45),
+    0 0 18px rgba(251,111,146,0.35);
+}
+
+/* Click / tap effect */
+.toggle-btn:active {
+  transform: scale(0.96);
 }
 
 /* Active (open) state */
 .toggle-btn.active {
-  background: linear-gradient(135deg, #ff8fab, #fb6f92);
   animation: none;
+  background: linear-gradient(135deg, #ff8fab, #fb6f92);
 }
 
-/* Rotate chevron when open */
+/* Rotate icon when open */
 .toggle-btn.active i {
   transform: rotate(180deg);
 }
 
-/* Subtle pulse animation */
-@keyframes softPulse {
+/* Soft pulse animation */
+@keyframes entouragePulse {
   0%, 100% {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.04);
+    transform: scale(1.05);
   }
 }
 
-
-
-.faq-toggle-btn {
-  margin-bottom: 1rem;
-  padding: 8px 16px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.faq-toggle-btn {
-  appearance: none;
-  background-color: transparent;
-  border: 2px solid #c4a76a; /* champagne / gold */
-  color: #c4a76a;
-  font-family: inherit;
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 10px 22px;
-  margin-bottom: 1.5rem;
-  cursor: pointer;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-}
-
-.faq-toggle-btn:hover {
-  background-color: #c4a76a;
-  color: #ffffff;
-}
-
-.faq-toggle-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(196, 167, 106, 0.35);
-}
 
 
 .faq summary {
@@ -460,6 +649,7 @@ i,
   min-height: 18px;
   transition: opacity 0.3s ease;
 }
+
 
 
 body {
@@ -554,10 +744,6 @@ h1 {
   color: #777;
 }
 
-.timeline li {
-  list-style: none;
-  margin: 6px 0;
-}
 
 .faq h4 {
   margin-top: 14px;
@@ -798,35 +984,6 @@ input, select, textarea {
   transition: opacity 0.25s ease;
 }
 
-/* Tap Tooltip */
-.color-tooltip {
-  position: absolute;
-  background: rgba(44, 44, 44, 0.92);
-  color: #fff;
-  padding: 6px 14px;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  border-radius: 20px;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transform: translate(-50%, -10px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  z-index: 2000;
-}
-
-/* Tooltip arrow */
-.color-tooltip::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: rgba(44, 44, 44, 0.92);
-}
-
-
 
 /* Show tooltip on hover / focus */
 .color-palette span:hover::after,
@@ -836,52 +993,7 @@ input, select, textarea {
 }
 
 
-/* Zoom Modal */
-.image-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  align-items: center;
-  justify-content: center;
-  animation: modalFade 0.3s ease;
-}
 
-.image-modal img {
-  max-width: 90%;
-  max-height: 85%;
-  border-radius: 18px;
-  animation: zoomIn 0.4s ease;
-}
-
-/* Close button */
-.close-modal {
-  position: absolute;
-  top: 18px;
-  right: 22px;
-  font-size: 36px;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 300;
-}
-
-/* Animations */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes modalFade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   .video-bg {
@@ -1001,14 +1113,27 @@ button:hover {
 @media (max-width: 400px) {
   h1 { font-size: 30px; }
 
-  
 }
+
+/* 💗 Make ALL Entourage text pink */
+#entourageContent,
+#entourageContent * {
+  color: #fb6f92 !important;
+}
+/* 💗 Entourage text color */
+#entourageContent p,
+#entourageContent h4,
+#entourageContent h3,
+#entourageContent h2,
+#entourageContent .entourage-heading,
+#entourageContent .entourage-center-title,
+#entourageContent .entourage-center-subtitle,
+#entourageContent strong {
+  color: #fb6f92;
+}
+
 </style>
 </head>
-
-
-
-
 
 <script>
   const reveals = document.querySelectorAll('.section, .details');
@@ -1025,17 +1150,6 @@ button:hover {
 
   window.addEventListener('scroll', revealOnScroll);
   revealOnScroll();
-</script>
-
-<script>
-  setInterval(() => {
-    const s = document.createElement("div");
-    s.className = "sparkle";
-    s.style.left = Math.random() * 100 + "vw";
-    s.style.animationDuration = 4 + Math.random() * 3 + "s";
-    document.body.appendChild(s);
-    setTimeout(() => s.remove(), 7000);
-  }, 1200);
 </script>
 
 
@@ -1067,13 +1181,84 @@ button:hover {
 
 
 
-
 <button id="musicToggle" class="music-btn">
+  <div class="eq">
+    <span></span><span></span><span></span>
+  </div>
   <i class="fa-solid fa-music"></i>
 </button>
 
+<script>
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
 
+  const BPM = 96; // 🎼 change if needed
+  toggle.style.setProperty("--bpm", `${60 / BPM}s`);
 
+  let isPlaying = false;
+  let noteInterval;
+
+  function spawnMusicNote() {
+    const note = document.createElement("div");
+    note.className = "music-note";
+    note.textContent = Math.random() > 0.5 ? "🎵" : "🎶";
+
+    const rect = toggle.getBoundingClientRect();
+    note.style.left = rect.left + rect.width / 2 + "px";
+    note.style.top = rect.top + "px";
+
+    document.body.appendChild(note);
+    setTimeout(() => note.remove(), 3000);
+  }
+
+  function startNotes() {
+    noteInterval = setInterval(spawnMusicNote, 900);
+  }
+
+  function stopNotes() {
+    clearInterval(noteInterval);
+  }
+
+  const startMusic = () => {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        toggle.classList.add("playing");
+        toggle.classList.remove("paused");
+        toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
+        startNotes();
+      }).catch(() => {});
+    }
+
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+    document.removeEventListener("scroll", startMusic);
+  };
+
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
+  document.addEventListener("scroll", startMusic);
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (isPlaying) {
+      music.pause();
+      stopNotes();
+      toggle.classList.remove("playing");
+      toggle.classList.add("paused");
+      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-music"></i>';
+    } else {
+      music.play();
+      startNotes();
+      toggle.classList.add("playing");
+      toggle.classList.remove("paused");
+      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
+    }
+
+    isPlaying = !isPlaying;
+  });
+</script>
 
   <script>
   const sparkleCount = 30;
@@ -1130,10 +1315,12 @@ button:hover {
 
   <div class="section">
 
-<button id="toggleEntourage" class="toggle-btn">
-  <span class="btn-text">Entourage</span>
-  <i class="fa-solid "></i>
-</button>
+<div class="entourage-toggle-wrapper">
+  <button id="toggleEntourage" class="toggle-btn">
+    <span class="btn-text">Entourage</span>
+    <i class="fa-solid"></i>
+  </button>
+</div>
 
 
 
@@ -1144,13 +1331,13 @@ button:hover {
     <!-- Parents -->
     <div class="entourage-row">
       <div class="entourage-col left">
-        <div class="entourage-heading">Parents Groom</div>
+        <div class="entourage-heading">Parents of the Groom</div>
         Mr. Leonardo P. Rubino<br>
         Mrs. Marivic R. Pedro
       </div>
 
       <div class="entourage-col right">
-        <div class="entourage-heading">Parents Bride</div>
+        <div class="entourage-heading">Parents of the Bride</div>
         Mr. Dionisio L. Tiu<br>
         Mrs. Lanie B. Tiu
       </div>
@@ -1241,21 +1428,7 @@ button:hover {
 
 
 <style>
-  .toggle-btn {
-    padding: 10px 16px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 20px;
-    border: none;
-    border-radius: 6px;
-    background-color: #444;
-    color: #fff;
-  }
 
- 
-.toggle-btn:hover {
-  background-color: #222;
-}
 
 
 
@@ -1279,7 +1452,12 @@ button:hover {
 
 
 
-
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* ✅ Add this */
+}
 
   
 </style>
@@ -1301,6 +1479,12 @@ button:hover {
       content.style.maxHeight = content.scrollHeight + "px";
       button.classList.add("active");
       btnText.textContent = "Hide Entourage";
+
+document.querySelectorAll('.entourage-wrapper p').forEach((p, i) => {
+  p.style.setProperty('--i', i);
+});
+
+
     } else {
       content.style.maxHeight = "0";
       button.classList.remove("active");
@@ -1417,7 +1601,38 @@ button:hover {
 
 <!-- label -->
 <div id="colorLabel" class="color-label"></div>
+<script>
+  function sparkleBurst(x, y) {
+    const count = 18;
 
+    for (let i = 0; i < count; i++) {
+      const sparkle = document.createElement("div");
+      sparkle.className = "sparkle-burst";
+
+      const angle = Math.random() * 2 * Math.PI;
+      const distance = 40 + Math.random() * 30;
+
+      sparkle.style.left = x + "px";
+      sparkle.style.top = y + "px";
+      sparkle.style.setProperty("--x", Math.cos(angle) * distance + "px");
+      sparkle.style.setProperty("--y", Math.sin(angle) * distance + "px");
+
+      document.body.appendChild(sparkle);
+
+      setTimeout(() => sparkle.remove(), 900);
+    }
+  }
+
+  const entourageBtn = document.getElementById("toggleEntourage");
+
+  entourageBtn.addEventListener("click", (e) => {
+    const rect = entourageBtn.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    sparkleBurst(x, y);
+  });
+</script>
   
 <script>
   const colorLabel = document.getElementById("colorLabel");
@@ -1457,16 +1672,7 @@ button:hover {
   </div>
 
 
-<script>
-  const principalImg = document.getElementById("principalSponsorsAttire");
-  const modal = document.getElementById("imageModal");
-  const modalImg = document.getElementById("modalImage");
 
-  principalImg.addEventListener("click", () => {
-    modal.style.display = "flex";
-    modalImg.src = principalImg.src;
-  });
-</script>
 
 
 <!-- Wedding Day Timeline -->
@@ -1559,6 +1765,20 @@ button:hover {
 
 
   </form>
+
+<script>
+  const submitBtn = document.getElementById("submitBtn");
+
+  submitBtn.addEventListener("click", e => {
+    const rect = submitBtn.getBoundingClientRect();
+    sparkleBurst(
+      rect.left + rect.width / 2,
+      rect.top + rect.height / 2
+    );
+  });
+</script>
+
+
 </div>
 
 
@@ -1750,21 +1970,6 @@ button:hover {
 
 
 <script>
-document.querySelector(".close-modal").addEventListener("click", () => {
-  modal.style.display = "none";
-});
-
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) {
-    modal.style.display = "none";
-  }
-});
-
-    });
-  });
-</script>
-
-<script>
   const toggleBtn = document.getElementById('toggleAllFaqs');
   const allDetails = document.querySelectorAll('.faq details');
   let faqsVisible = false;
@@ -1812,51 +2017,21 @@ modal.addEventListener("click", (e) => {
       <div class="time-box"><span>${h}</span><small>Hours</small></div>
       <div class="time-box"><span>${m}</span><small>Minutes</small></div>
       <div class="time-box"><span>${s}</span><small>Seconds</small></div>`;
+
+
+document.querySelectorAll(".time-box span").forEach(el => {
+  el.classList.remove("tick");
+  void el.offsetWidth;
+  el.classList.add("tick");
+});
+
+
+
   }, 1000);
 })();
 </script>
 
 
 
-<script>
-  const music = document.getElementById("bgMusic");
-  const toggle = document.getElementById("musicToggle");
-  let isPlaying = false;
-
-  // Auto‑play on first user interaction
-  const startMusic = () => {
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
-      }).catch(() => {});
-    }
-
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
-    document.removeEventListener("scroll", startMusic);
-  };
-
-  document.addEventListener("click", startMusic);
-  document.addEventListener("touchstart", startMusic);
-  document.addEventListener("scroll", startMusic);
-
-  // Manual toggle button
-  toggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    if (isPlaying) {
-      music.pause();
-      toggle.innerHTML = '<i class="fa-solid fa-music"></i>';
-    } else {
-      music.play();
-      toggle.innerHTML = '<i class="fa-solid fa-pause"></i>';
-    }
-
-    isPlaying = !isPlaying;
-  });
-</script>
-
 </body>
-
 </html>
