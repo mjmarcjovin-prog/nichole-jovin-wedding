@@ -2039,6 +2039,45 @@ document.querySelectorAll(".time-box span").forEach(el => {
     document.body.classList.add("page-loaded");
   });
 </script>
+<script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+
+  window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+  });
+</script>
+<script>
+  window.addEventListener("load", () => {
+    const content = document.getElementById("entourageContent");
+    const button = document.getElementById("toggleEntourage");
+    const btnText = button?.querySelector(".btn-text");
+
+    if (content && button && btnText) {
+      content.style.display = "none";
+      content.style.maxHeight = "0";
+      button.classList.remove("active");
+      btnText.textContent = "Entourage";
+    }
+  });
+</script>
+<script>
+  window.addEventListener("load", () => {
+    document.querySelectorAll(".faq details").forEach(detail => {
+      detail.open = false;
+      detail.style.display = "none";
+    });
+
+    const toggle = document.getElementById("toggleAllFaqs");
+    if (toggle) toggle.textContent = "FAQs";
+  });
+</script>
+<script>
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+</script>
 
 </body>
 </html>
