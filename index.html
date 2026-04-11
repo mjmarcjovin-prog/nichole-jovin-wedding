@@ -24,13 +24,16 @@ html, body {
 .image-bg {
   position: fixed;
   inset: 0;
-  background: url("images/pinkenvelope.png") center / contain no-repeat;
-  background-color: #000; /* fill empty space */
+  background: url("images/pink.png") center / contain no-repeat;
+  background-color: #000;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 1.2s ease;
 }
 
+/* IMAGE fades out */
 .image-bg.fade-out {
   opacity: 0;
-  transform: scale(1.05);
 }
 
 /* 🎥 VIDEO */
@@ -40,38 +43,18 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  background-color: #000; /* fill empty space */
+  background-color: #000;
+  z-index: 0;
+  opacity: 0;                  /* ⬅️ HIDDEN initially */
+  transition: opacity 1.2s ease;
 }
 
+/* VIDEO fades in */
 .video-bg.fade-in {
   opacity: 1;
+  z-index: 2;
 }
-
-/* 🌑 OVERLAY */
-.video-overlay {
-  position: fixed;
-  inset: 0;
-  height: var(--vh);
-  background: rgba(0,0,0,.45);
-  z-index: -2;
-}
-
-/* 🎬 VIDEO END TRANSITION */
-.video-bg.video-end {
-  animation: videoOutro 1.6s ease-in forwards;
-}
-
-.video-overlay.video-end {
-  animation: overlayFade 1.6s ease-in forwards;
-}
-
-@keyframes videoOutro {
-  to {
-    transform: scale(1.12);
-    opacity: 0;
-    filter: blur(6px);
-  }
-}
+``
 
 @keyframes overlayFade {
   to {
@@ -92,7 +75,7 @@ html, body {
   playsinline
   preload="auto"
   id="bgVideo">
-  <source src="images/pinkenvelope.mp4" type="video/mp4">
+  <source src="images/pink.mp4" type="video/mp4">
 </video>
 
 
@@ -120,6 +103,12 @@ function startInvitation() {
   sound.volume = 0.8; // adjust if needed
   sound.play().catch(() => {});
 
+  
+ /* ✅ FADE IMAGE OUT / FADE VIDEO IN */
+  imageBg.classList.add("fade-out");   // 
+  video.classList.add("fade-in");      //
+
+
   /* 🎥 START VIDEO */
   imageBg.classList.add("fade-out");
   video.classList.add("fade-in");
@@ -141,7 +130,7 @@ function startInvitation() {
     setTimeout(() => {
       window.location.href = "invite.html";
     }, 1000);
-  }, 4700);
+  }, 2700);
 }
 
 /* ✅ ANY interaction triggers once */
