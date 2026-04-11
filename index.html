@@ -42,9 +42,41 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* 🖼️ IMAGE BACKGROUND */
+.image-bg {
+  position: fixed;
+  inset: 0;
+  background: url("images/pink.png") center / cover no-repeat;
+  z-index: -4;
+  opacity: 1;
+  transition: opacity 1.4s ease, transform 1.8s ease;
+}
+
+.image-bg.fade-out {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+/* 🎥 VIDEO BACKGROUND */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+
+.video-bg.fade-in {
+  opacity: 1;
+}
+
+
 /* ✅ OPEN INVITATION BUTTON */
 .open-btn {
-  margin-top: 120px;
+  margin-top: 100px;
   padding: 14px 36px;
   font-size: 14px;
   text-transform: uppercase;
@@ -112,10 +144,14 @@
 
 <body>
 
+<!-- 🖼️ Background image -->
+<div class="image-bg"></div>
+
 <!-- 🎥 Background video -->
 <video class="video-bg" muted loop playsinline preload="auto" id="bgVideo">
   <source src="images/pinkenvelope.mp4" type="video/mp4">
 </video>
+
 <div class="video-overlay"></div>
 
 <div class="hero">
@@ -130,22 +166,27 @@
   const btn = document.getElementById("openInvitation");
   const video = document.getElementById("bgVideo");
   const overlay = document.querySelector(".video-overlay");
+  const imageBg = document.querySelector(".image-bg");
 
   btn.addEventListener("click", () => {
 
-    // ✅ Fade button away
+    // Fade button
     btn.classList.add("fade-out");
+
+    // 🔁 Switch background
+    imageBg.classList.add("fade-out");
+    video.classList.add("fade-in");
 
     video.currentTime = 0;
     video.play();
 
-    // 🎬 Video zoom & fade
+    // 🎬 Video outro
     setTimeout(() => {
       video.classList.add("video-end");
       overlay.classList.add("video-end");
     }, 3000);
 
-    // ✅ Page fade + redirect
+    // ✅ Page fade & redirect
     setTimeout(() => {
       document.body.style.transition = "opacity 1s ease";
       document.body.style.opacity = "0";
