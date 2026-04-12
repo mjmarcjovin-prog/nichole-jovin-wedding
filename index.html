@@ -1492,7 +1492,17 @@ body.reveal-content .invite {
    🎬 INTRO VIDEO — MATCH .invite SCREEN
    =============================== */
 
-
+#introScreen {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: url("images/tppink.png") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 1.2s ease, visibility 1.2s ease;
+}
 
 #introScreen.fade-out {
   opacity: 0;
