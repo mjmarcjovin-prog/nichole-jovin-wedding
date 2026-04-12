@@ -1177,16 +1177,16 @@ body.reveal-content .invite {
   Your browser does not support the audio element.
 </audio>
 
-
+<body class="intro-active"></body>
 
 <body>
-<body class="intro-active">
+
 
 
 <!-- 🎬 Intro Video Screen -->
 <div id="introScreen">
   <video id="introVideo" muted playsinline preload="metadata">
-    <source src="images/pinkenvelope.mp4" type="video/mp4">
+    <source src="images/tppink.mp4" type="video/mp4">
   </video>
 
   <div class="intro-hint">
@@ -1489,7 +1489,7 @@ body.reveal-content .invite {
   text-align: center; /* ✅ Add this */
 }
 /* ===============================
-   🎬 INTRO VIDEO OVERLAY
+   🎬 INTRO VIDEO — MATCH .invite SCREEN
    =============================== */
 
 #introScreen {
@@ -1500,6 +1500,7 @@ body.reveal-content .invite {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   transition: opacity 1.2s ease, visibility 1.2s ease;
 }
 
@@ -1508,17 +1509,18 @@ body.reveal-content .invite {
   visibility: hidden;
 }
 
+/* ✅ VIDEO FILLS SCREEN PERFECTLY */
 #introScreen video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;       /* ✅ NO stretching */
+  object-position: center; /* ✅ Always centered */
 }
 
-/* Optional tap hint */
+/* Optional hint */
 .intro-hint {
   position: absolute;
   bottom: 14%;
-  text-align: center;
   font-size: 14px;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -1530,46 +1532,23 @@ body.reveal-content .invite {
   0%, 100% { opacity: 0.4; }
   50% { opacity: 1; }
 }
-/* ===============================
-   🎬 INTRO CLICK-TO-PLAY
-   =============================== */
-
 #introScreen {
   position: fixed;
   inset: 0;
   z-index: 99999;
-  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 1.2s ease, visibility 1.2s ease;
-}
-
-#introScreen.fade-out {
-  opacity: 0;
-  visibility: hidden;
+  background: rgba(0,0,0,0.9);
 }
 
 #introScreen video {
   width: 100%;
+  max-width: 800px;     /* same as .invite */
   height: 100%;
+  max-height: 100vh;
   object-fit: cover;
-}
-
-/* Tap hint */
-.intro-hint {
-  position: absolute;
-  bottom: 14%;
-  font-size: 14px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.75);
-  animation: introPulse 2s ease-in-out infinite;
-}
-
-@keyframes introPulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  border-radius: 22px; /* matches invite */
 }
   
 </style>
