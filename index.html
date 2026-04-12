@@ -1150,8 +1150,18 @@ body.reveal-content .invite {
   color: #fb6f92;
 }
 
+<video
+  id="introVideo"
+  muted
+  playsinline
+  autoplay
+  preload="auto"
+>
+
 </style>
 </head>
+
+
 
 <script>
   const reveals = document.querySelectorAll('.section, .details');
@@ -1177,11 +1187,11 @@ body.reveal-content .invite {
   Your browser does not support the audio element.
 </audio>
 
-<body class="intro-active"></body>
+
 
 <body>
 
-
+<body class="intro-active">
 
 <!-- 🎬 Intro Video Screen -->
 <div id="introScreen">
@@ -1203,8 +1213,6 @@ body.reveal-content .invite {
 
 <!-- Optional dark overlay -->
 <div class="video-overlay"></div>
-
-
 
 
 
@@ -1492,17 +1500,6 @@ body.reveal-content .invite {
    🎬 INTRO VIDEO — MATCH .invite SCREEN
    =============================== */
 
-#introScreen {
-  position: fixed;
-  inset: 0;
-  z-index: 99999;
-  background: url("images/fpink.png") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: opacity 1.2s ease, visibility 1.2s ease;
-}
 
 #introScreen.fade-out {
   opacity: 0;
@@ -2145,7 +2142,7 @@ document.querySelectorAll(".time-box span").forEach(el => {
         introVideo.pause();
         introScreen.remove();
       }, 1200);
-    }, 3000);
+    }, 2500);
 
     // ✅ Trigger music autoplay safely
     document.dispatchEvent(new Event("click"));
