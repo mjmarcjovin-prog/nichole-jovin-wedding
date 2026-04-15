@@ -13,6 +13,65 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
+  .timeline-svg.replay .tl-icon {
+  animation:
+    iconPop 0.5s ease forwards,
+    iconFloat 4.8s ease-in-out infinite,
+    iconGlow 6s ease-in-out infinite;
+}
+  /* =====================================
+   💍 Wedding Timeline Icon Animations
+   ===================================== */
+
+/* Base animated state */
+.tl-icon {
+  animation:
+    iconPop 0.5s ease forwards,
+    iconFloat 4.8s ease-in-out infinite,
+    iconGlow 6s ease-in-out infinite;
+}
+
+/* Offset the floating/glow so icons don’t move together */
+.tl-item:nth-child(1) .tl-icon { animation-delay: 1.1s, 0s, 0s; }
+.tl-item:nth-child(2) .tl-icon { animation-delay: 1.28s, 0.6s, 1.2s; }
+.tl-item:nth-child(3) .tl-icon { animation-delay: 1.46s, 1.2s, 2.4s; }
+.tl-item:nth-child(4) .tl-icon { animation-delay: 1.64s, 0.9s, 3s; }
+.tl-item:nth-child(5) .tl-icon { animation-delay: 1.82s, 1.6s, 4s; }
+.tl-item:nth-child(6) .tl-icon { animation-delay: 2s, 0.3s, 5s; }
+
+/* 🌸 Float motion */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-6px); }
+}
+
+/* 💗 Soft glow pulse */
+@keyframes iconGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(251,111,146,0));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(251,111,146,0.45));
+  }
+}
+
+/* ✨ Hover polish (desktop only) */
+@media (hover: hover) {
+  .tl-icon:hover {
+    transform: translateY(-50%) scale(1.15);
+    filter:
+      drop-shadow(0 0 6px rgba(251,111,146,0.6))
+      drop-shadow(0 4px 14px rgba(251,111,146,0.35));
+  }
+}
+
+/* ♿ Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tl-icon {
+    animation: iconPop 0.5s ease forwards;
+  }
+}
+
   /* =====================================
    🕊️ Editorial SVG-Style Timeline
    ===================================== */
@@ -2328,6 +2387,23 @@ document.querySelectorAll(".time-box span").forEach(el => {
 })();
 </script>
 
+<script>
+  const timeline = document.querySelector('.timeline-svg');
+
+  if ('IntersectionObserver' in window && timeline) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timeline.classList.remove('replay');
+          void timeline.offsetWidth; // force reflow
+          timeline.classList.add('replay');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(timeline);
+  }
+</script>
 
 
 </body>
