@@ -156,7 +156,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 40px;
+  font-size: 30px;
   background: transparent;
   opacity: 0;
   animation: iconPop 0.5s ease forwards;
@@ -539,7 +539,11 @@
   height: 4px;
   opacity: 0.5;
 }
-``
+@media (max-width: 480px) {
+  .tl-icon {
+    left: 2px !important;
+  }
+}
 
 
 
@@ -2009,12 +2013,12 @@ document.querySelectorAll('.entourage-wrapper p').forEach((p, i) => {
 
   <div class="timeline-svg">
 
-    <span class="timeline-rule"></span>
+  
 
     <div class="tl-item left" style="--i:1">
       <span class="tl-time">2:00 PM</span>
       <span class="tl-label">Ceremony</span>
-      <i class="fa-solid fa-ring tl-icon"></i>
+      <i class="fa-solid fa-church tl-icon"></i>
     </div>
 
     <div class="tl-item right" style="--i:2">
