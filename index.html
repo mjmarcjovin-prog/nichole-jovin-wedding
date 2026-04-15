@@ -269,7 +269,7 @@
   /* Right items */
   .tl-item.right {
     width: 50%;
-    left: 60%;
+    left: 50%;
     text-align: left;
     padding-left: 20px;
   }
@@ -301,6 +301,40 @@
 @media (max-width: 360px) {
   .tl-item {
     padding: 12px 14px;
+  }
+
+  .tl-icon {
+    font-size: 22px;
+  }
+}
+/* ===============================
+   📱 MOBILE – PREVENT ICON OVERLAP
+   =============================== */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Give right items more breathing room */
+  .tl-item.right {
+    padding-left: 36px;   /* ✅ more space from center line */
+  }
+
+  /* Push right icon slightly outward */
+  .tl-item.right .tl-icon {
+    left: -20px;
+  }
+
+  /* Optional: tighten left side slightly for balance */
+  .tl-item.left {
+    padding-right: 22px;
+  }
+}
+@media (max-width: 360px) {
+
+  .tl-item.right {
+    padding-left: 42px;
+  }
+
+  .tl-item.right .tl-icon {
+    left: -22px;
   }
 
   .tl-icon {
