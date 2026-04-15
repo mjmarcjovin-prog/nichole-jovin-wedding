@@ -514,16 +514,25 @@
   color: #555;
 }
 
-/* Mobile stacking */
+/* 📱 MOBILE — KEEP DESKTOP ENTOURAGE VIEW */
 @media (max-width: 480px) {
   .entourage-row {
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;        /* keep side-by-side */
+    justify-content: space-between;
   }
 
   .entourage-col {
-    width: 100%;
-    text-align: center !important;
+    width: 45%;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .entourage-col.left {
+    text-align: right;
+  }
+
+  .entourage-col.right {
+    text-align: left;
   }
 }
 
