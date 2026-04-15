@@ -13,7 +13,235 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 <style>
+  /* =====================================
+   🕊️ Editorial SVG-Style Timeline
+   ===================================== */
 
+.timeline-svg {
+  position: relative;
+  max-width: 520px;
+  margin: 36px auto 10px;
+  padding: 10px 0 30px;
+  font-family: "Playfair Display", serif;
+}
+
+/* Vertical rule draws DOWN */
+.timeline-rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #d9b9c0;
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: drawLine 1.6s ease forwards;
+}
+
+@keyframes drawLine {
+  to { transform: scaleY(1); }
+}
+
+/* Timeline items */
+.tl-item {
+  position: relative;
+  width: 50%;
+  padding: 18px 26px;
+  opacity: 0;
+  animation: fadeSlide 0.7s ease forwards;
+  animation-delay: calc(1s + var(--i) * 0.18s);
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tl-item.left {
+  text-align: right;
+  left: 0;
+}
+
+.tl-item.right {
+  text-align: left;
+  left: 50%;
+}
+
+/* Time typography (EXACT spacing feel) */
+.tl-time {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  color: #2e2e2e;
+}
+
+/* Label typography */
+.tl-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Icon — SVG‑like floating */
+.tl-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 15px;
+  background: transparent;
+  opacity: 0;
+  animation: iconPop 0.5s ease forwards;
+  animation-delay: calc(1.1s + var(--i) * 0.18s);
+}
+
+@keyframes iconPop {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.tl-item.left .tl-icon {
+  right: -16px;
+}
+
+.tl-item.right .tl-icon {
+  left: -16px;
+}
+
+/* ===============================
+   📱 Mobile (straight line style)
+   =============================== */
+
+@media (max-width: 480px) {
+  .timeline-rule {
+    left: 18px;
+  }
+
+  .tl-item {
+    width: 100%;
+    padding-left: 48px;
+    padding-right: 10px;
+    text-align: left;
+    left: 0 !important;
+  }
+
+  .tl-icon {
+    left: 2px !important;
+    right: auto;
+  }
+}
+``
+/* ===============================
+   💒 Wedding Timeline (Image Style)
+   =============================== */
+
+.wedding-timeline {
+  position: relative;
+  max-width: 520px;
+  margin: 30px auto;
+  padding: 10px 0;
+  font-family: "Playfair Display", serif;
+}
+
+/* Center vertical line */
+.timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #e5c5cc;
+  transform: translateX(-50%);
+}
+
+/* Timeline item */
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 14px 24px;
+  box-sizing: border-box;
+}
+
+.timeline-item.left {
+  text-align: right;
+  left: 0;
+}
+
+.timeline-item.right {
+  text-align: left;
+  left: 50%;
+}
+
+/* Time */
+.timeline-item .time {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #444;
+  text-transform: uppercase;
+}
+
+/* Label */
+.timeline-item .label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Icon */
+.timeline-item .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  background: #fff;
+  padding: 6px;
+}
+
+.timeline-item.left .icon {
+  right: -18px;
+}
+
+.timeline-item.right .icon {
+  left: -18px;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .timeline-line {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 10px;
+    text-align: left;
+    left: 0 !important;
+  }
+
+  .timeline-item .icon {
+    left: 6px !important;
+    right: auto;
+  }
+}
 .hero-reveal {
   opacity: 0;
   filter: blur(6px);
@@ -1715,21 +1943,53 @@ document.querySelectorAll('.entourage-wrapper p').forEach((p, i) => {
 
 
 
+
 <!-- Wedding Day Timeline -->
 <div class="section details">
   <h2>Our Wedding Day Timeline</h2>
 
+  <div class="timeline-svg">
 
-<ul class="timeline center">
-  <li>🕊️ <strong>2:00 PM</strong> – Ceremony</li>
-  <li>📸 <strong>3:30 PM</strong> – Photo Taking</li>
-  <li>🥂 <strong>4:00 PM</strong> – Cocktail Hour</li>
-  <li>🎤 <strong>4:30 PM</strong> – Start of Program</li>
-  <li>🍽️ <strong>7:00 PM</strong> – Dinner Time</li>
-  <li>🎉 <strong>9:00 PM</strong> – After Party</li>
-</ul>
+    <span class="timeline-rule"></span>
 
-<div class="section"></div>
+    <div class="tl-item left" style="--i:1">
+      <span class="tl-time">2:00 PM</span>
+      <span class="tl-label">Ceremony</span>
+      <i class="fa-solid fa-rings-wedding tl-icon"></i>
+    </div>
+
+    <div class="tl-item right" style="--i:2">
+      <span class="tl-time">3:30 PM</span>
+      <span class="tl-label">Group Photo</span>
+      <i class="fa-solid fa-camera tl-icon"></i>
+    </div>
+
+    <div class="tl-item left" style="--i:3">
+      <span class="tl-time">4:00 PM</span>
+      <span class="tl-label">Cocktail</span>
+      <i class="fa-solid fa-champagne-glasses tl-icon"></i>
+    </div>
+
+    <div class="tl-item right" style="--i:4">
+      <span class="tl-time">4:30 PM</span>
+      <span class="tl-label">Program</span>
+      <i class="fa-solid fa-microphone tl-icon"></i>
+    </div>
+
+    <div class="tl-item left" style="--i:5">
+      <span class="tl-time">7:00 PM</span>
+      <span class="tl-label">Dinner</span>
+      <i class="fa-solid fa-utensils tl-icon"></i>
+    </div>
+
+    <div class="tl-item right" style="--i:6">
+      <span class="tl-time">9:00 PM</span>
+      <span class="tl-label">Dancing</span>
+      <i class="fa-solid fa-music tl-icon"></i>
+    </div>
+  </div>
+
+
 
 
 <h3>GUEST RSVP</h3>
