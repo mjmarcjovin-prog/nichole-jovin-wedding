@@ -1351,6 +1351,26 @@ a {
    💎 LUXURY COUNTDOWN STYLE
    =============================== */
 
+@media (max-width: 480px) {
+  .countdown {
+    grid-template-columns: repeat(4, 50px);
+    gap: 6px;
+  }
+
+  .time-box {
+    padding: 8px 4px;
+  }
+
+  .time-box span {
+    font-size: 16px;
+  }
+
+  .time-box small {
+    font-size: 6px;
+  }
+}
+
+
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, minmax(50px, 80px));
