@@ -834,7 +834,7 @@ i,
 .fa-solid,
 .fa-regular,
 .fa-brands {
-  color: #fb6f92 !important;
+  color: #f5b2c3 !important;
 }
 ::placeholder {
   color: #fb6f92;
@@ -878,25 +878,81 @@ i,
 }
 
 
+/* 💎 LUXURY SUBMIT BUTTON */
 #submitBtn {
   position: relative;
   overflow: hidden;
+  border-radius: 18px;
+
+  background: linear-gradient(135deg, #f5b2c3, #fcd5ce);
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    0 0 0 rgba(245,178,195,0);
+
+  transition: all 0.35s ease;
 }
 
-#submitBtn::after {
-  content: "❤️";
+/* ✨ Hover glow */
+#submitBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 30px rgba(245,178,195,0.35),
+    0 0 18px rgba(245,178,195,0.45);
+}
+
+/* ✨ CLICK PRESS EFFECT */
+#submitBtn:active {
+  transform: scale(0.97);
+}
+
+/* ✨ GOLD SHINE SWEEP */
+#submitBtn::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 26px;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.6);
-  transition: all 0.4s ease;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+
+  transform: skewX(-25deg);
 }
 
-#submitBtn:hover::after {
-  opacity: 1;
-  transform: translate(-50%, -90%) scale(1);
+/* Animate shine */
+#submitBtn:hover::before {
+  animation: luxuryShine 1s ease forwards;
+}
+
+@keyframes luxuryShine {
+  to {
+    left: 130%;
+  }
+}
+
+/* ✨ SOFT PULSE (idle elegance) */
+#submitBtn {
+  animation: luxuryPulseBtn 3.5s ease-in-out infinite;
+}
+
+@keyframes luxuryPulseBtn {
+  0%, 100% {
+    box-shadow:
+      0 8px 20px rgba(0,0,0,0.15),
+      0 0 0 rgba(245,178,195,0);
+  }
+  50% {
+    box-shadow:
+      0 12px 28px rgba(0,0,0,0.2),
+      0 0 16px rgba(245,178,195,0.4);
+  }
 }
 
 
@@ -1217,7 +1273,7 @@ background: rgba(255,255,255,0.08); /* very light glass */
 .details li {
   font-size: 13px;
   margin: 4px 0;
-  color: #555;
+  color: #ebdede;
 }
 
 .grid-2 {
@@ -1598,7 +1654,7 @@ form textarea,
 form button,
 #submitBtn,
 ::placeholder {
-  color: #ffffff !important;
+  color: #eccece !important;
 }
 
 /* Dropdown options (some browsers need this) */
@@ -1817,6 +1873,11 @@ body.reveal-content .invite {
   color: #fb6f92;
 }
 
+/* 💖 FORCE ALL TEXT TO #f5b2c3 */
+body,
+body * {
+  color: #f5b2c3 !important;
+}
 
 
 </style>
