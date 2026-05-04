@@ -116,19 +116,131 @@ document.querySelectorAll(".time-box span").forEach(el => {
   </a>
 </div>
 
+<div class="nav-buttons">
+  <a href="pages/entourage.html" class="nav-btn">
+    <i class="fa-solid fa-users"></i> Entourage
+  </a>
 
-<div><a href="pages/entourage.html">Entourage</a></div>
-<div><a href="pages/venue.html">Venue</a></div>
-<div><a href="pages/details.html">Click for Details</a></div>
-<div><a href="pages/faqs.html">Frequently Asked Questions</a></div>
+  <a href="pages/venue.html" class="nav-btn">
+    <i class="fa-solid fa-location-dot"></i> Venue
+  </a>
+
+  <a href="pages/details.html" class="nav-btn">
+    <i class="fa-solid fa-circle-info"></i> Click for Details
+  </a>
+
+  <a href="pages/faqs.html" class="nav-btn">
+    <i class="fa-solid fa-comments"></i> Frequently Asked Questions
+  </a>
+</div>
 
 <style>
+  /* ✨ Transparent RSVP Fields (Glass Style) */
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+
+  /* ✅ Transparent look */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #fb6f92;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 6px 18px rgba(0,0,0,0.15);
+
+  transition: all 0.3s ease;
+}
+  select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fb6f92' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #fb6f92;
+  box-shadow:
+    0 0 10px rgba(251,111,146,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+  .nav-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  
+}
+
+.nav-btn i {
+  color: #e2b8b8 !important;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.08); /* very light glass */
+}
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  /* ✨ Transparent glass look */
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #e4b3b3;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all 0.35s ease;
+}
+
+
+.nav-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  box-shadow:
+    0 12px 35px rgba(251,111,146,0.25),
+    0 0 18px rgba(251,111,146,0.3);
+}
+
+/* Click effect */
+.nav-btn:active {
+  transform: scale(0.96);
+}
 h1 {
   margin-top: -10px; /* move it upward */
   margin-bottom: 8px; /* optional: tighten space below */
   margin-top: 50px;
   margin-bottom: 8px;
-  font-size: 50px; /* adjust size here */
+  font-size: 35px; /* adjust size here */
 }
  .top-logo {
   display: block;
@@ -226,7 +338,7 @@ h1 {
   font-size: 11px;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: #777;
+  color: #fcf9f9;
   margin-top: 4px;
 }
 
@@ -469,7 +581,7 @@ h1 {
   text-align: center;
   font-weight: bold;
   margin: 18px 0 4px;
-  color: #555;
+  color: #f8f7f7;
 }
 
 .entourage-center-subtitle {
@@ -477,7 +589,7 @@ h1 {
   font-style: italic;
   font-size: 13px;
   margin-bottom: 16px;
-  color: #555;
+  color: #f5f2f2;
 }
 
 /* 📱 MOBILE — KEEP DESKTOP ENTOURAGE VIEW */
@@ -1073,8 +1185,7 @@ body {
 
 .invite {
   background:
-    linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
-    url("images/xxxxx") center / cover no-repeat;
+background: rgba(255,255,255,0.08); /* very light glass */
   max-width: 700px;
   width: 100%;
   padding: 16px 20px;   /* reduce from 24px */
@@ -1090,7 +1201,7 @@ body {
 .details h2 {
   font-family: "Playfair Display", serif;
   font-size: 22px;
-  color: #fb6f92;
+  color: #eccad3;
   margin: 18px 0 8px;
 }
 
@@ -1099,7 +1210,7 @@ body {
   text-transform: uppercase;
   margin: 14px 0 6px;
   letter-spacing: 1px;
-  color: #777;
+  color: #e7c8c8;
 }
 
 .details p,
@@ -1348,7 +1459,7 @@ a {
 .section a {
   display: block;
   text-decoration: none;
-  color: #fb6f92;
+  color: #f7cbd6;
   margin: 8px 0;
 }
 
@@ -1360,7 +1471,7 @@ a {
 form {
   margin-top: 12px;
   text-align: left;
-  color: #fb6f92;
+  color: #f1dae0;
 
   max-width: 200px;
   margin-left: auto;
@@ -1378,7 +1489,7 @@ input, select, textarea {
   padding: 10px;
   margin-bottom: 12px;
   font-size: 14px;
- color: #fb6f92;
+ color: #f0dae0;
 }
 
 
@@ -1474,7 +1585,31 @@ input, select, textarea {
   flex-wrap: wrap;
 }
 
+/* ✅ RSVP TEXT — FORCE WHITE */
+form,
+form label,
+form h3,
+form p,
+form small,
+form option,
+form select,
+form input,
+form textarea,
+form button,
+#submitBtn,
+::placeholder {
+  color: #ffffff !important;
+}
 
+/* Dropdown options (some browsers need this) */
+select option {
+  color: #000; /* keep readable inside dropdown */
+}
+
+/* Keep icons white inside RSVP if any */
+form i {
+  color: #ffffff !important;
+}
 
 /* Tooltip Labels */
 .color-palette span {
@@ -1590,7 +1725,7 @@ input, select, textarea {
 
 button {
   width: 100%;
-  background: #ffc2d1;
+  background: rgba(255,255,255,0.08); /* very light glass */
   color: #fff;
   border: none;
   padding: 12px;
@@ -1601,7 +1736,7 @@ button {
 }
 
 button:hover {
-  background: #ff8fab;
+  background: rgba(255,255,255,0.08); /* very light glass */
 }
 
 .thankyou {
