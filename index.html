@@ -246,6 +246,12 @@ h1 {
   margin-top: 50px;
   margin-bottom: 8px;
   font-size: 35px; /* adjust size here */
+
+font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  color: #f5b2c3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+
 }
  .top-logo {
   display: block;
@@ -1347,25 +1353,23 @@ a {
 
 .countdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-  margin: 22px 0 26px;
+  grid-template-columns: repeat(4, minmax(50px, 80px));
+  justify-content: center;
+  gap: 10px;
 }
-@media (max-width: 480px) {
-  .time-box {
-    flex: 0 0 40px;   /* ✅ smaller width */
-    padding: 10px 4px;
-  }
 
-  .time-box span {
-    font-size: 15px;
-  }
-
-  .time-box small {
-    font-size: 5px;
-  }
-
+.time-box {
+  padding: 10px 6px;
 }
+
+.time-box span {
+  font-size: clamp(16px, 3vw, 22px);
+}
+
+.time-box small {
+  font-size: clamp(7px, 1.5vw, 10px);
+}
+
 
 /* Glass + gold card */
 .time-box {
