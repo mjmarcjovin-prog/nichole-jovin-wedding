@@ -1350,6 +1350,36 @@ a {
   gap: 12px;
   margin: 22px 0 26px;
 }
+/* 📱 KEEP SAME COUNTDOWN SHAPE ON MOBILE */
+@media (max-width: 480px) {
+
+  .countdown {
+    display: flex;              /* change from grid → flex */
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: nowrap;          /* ✅ prevent wrapping */
+  }
+
+  .time-box {
+    flex: 0 0 70px;             /* ✅ fixed width (same shape) */
+    padding: 12px 6px;
+    
+aspect-ratio: 1 / 1;   /* perfect square */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  }
+
+  .time-box span {
+    font-size: 20px;
+  }
+
+  .time-box small {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+  }
+}
 
 /* Glass + gold card */
 .time-box {
