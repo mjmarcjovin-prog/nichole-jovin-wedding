@@ -132,6 +132,7 @@ document.querySelectorAll(".time-box span").forEach(el => {
 </div>
 
 <style>
+
   .bottom-line {
   margin-top: 40px;
   border: none;
@@ -1350,35 +1351,20 @@ a {
   gap: 12px;
   margin: 22px 0 26px;
 }
-/* 📱 KEEP SAME COUNTDOWN SHAPE ON MOBILE */
 @media (max-width: 480px) {
-
-  .countdown {
-    display: flex;              /* change from grid → flex */
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: nowrap;          /* ✅ prevent wrapping */
-  }
-
   .time-box {
-    flex: 0 0 70px;             /* ✅ fixed width (same shape) */
-    padding: 12px 6px;
-    
-aspect-ratio: 1 / 1;   /* perfect square */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
+    flex: 0 0 40px;   /* ✅ smaller width */
+    padding: 10px 4px;
   }
 
   .time-box span {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .time-box small {
-    font-size: 9px;
-    letter-spacing: 0.2em;
+    font-size: 5px;
   }
+
 }
 
 /* Glass + gold card */
