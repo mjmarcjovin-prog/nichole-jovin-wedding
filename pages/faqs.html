@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>Jovin & Nichole | Wedding Invitation</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+ 
+
+/* 🌸 Float motion */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-6px); }
+}
+
+/* 💗 Soft glow pulse */
+@keyframes iconGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 rgba(251,111,146,0));
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(251,111,146,0.45));
+  }
+}
+
+/* ✨ Hover polish (desktop only) */
+@media (hover: hover) {
+  .tl-icon:hover {
+    transform: translateY(-50%) scale(1.15);
+    filter:
+      drop-shadow(0 0 6px rgba(251,111,146,0.6))
+      drop-shadow(0 4px 14px rgba(251,111,146,0.35));
+  }
+}
+
+/* ♿ Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tl-icon {
+    animation: iconPop 0.5s ease forwards;
+  }
+}
+
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tl-item.left {
+  text-align: right;
+  left: 0;
+}
+
+.tl-item.right {
+  text-align: left;
+  left: 50%;
+}
+
+/* Time typography (EXACT spacing feel) */
+.tl-time {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  font-weight: 600;
+  color: #2e2e2e;
+}
+
+/* Label typography */
+.tl-label {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: #777;
+  margin-top: 4px;
+}
+
+/* Icon — SVG‑like floating */
+.tl-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: transparent;
+  opacity: 0;
+  animation: iconPop 0.5s ease forwards;
+  animation-delay: calc(1.1s + var(--i) * 0.18s);
+}
+
+@keyframes iconPop {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.tl-item.left .tl-icon {
+  right: -16px;
+}
+
+.tl-item.right .tl-icon {
+  left: -16px;
+}
+
+/* ===============================
+   📱 MOBILE TAP HIGHLIGHT FX
+   =============================== */
+
+@media (hover: none) and (pointer: coarse) {
+
+  .tl-item {
+    -webkit-tap-highlight-color: transparent;
+    position: relative;
+  }
+
+  /* Tap glow ring */
+  .tl-item::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 14px;
+    border: 1px solid rgba(251, 111, 146, 0.45);
+    opacity: 0;
+    transform: scale(0.96);
+    transition:
+      opacity 0.35s ease,
+      transform 0.35s ease;
+    pointer-events: none;
+  }
+
+  /* Active tap state */
+  .tl-item.tap-active::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Icon tap reaction */
+  .tl-item.tap-active .tl-icon {
+    transform: translateY(-50%) scale(1.18);
+    filter:
+      drop-shadow(0 0 10px rgba(251,111,146,0.65))
+      drop-shadow(0 6px 18px rgba(251,111,146,0.35));
+  }
+}
+
+/* ♿ Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tl-item::after {
+    transition: opacity 0.2s ease;
+  }
+
+  .tl-item.tap-active .tl-icon {
+    transform: translateY(-50%);
+  }
+}
+
+
+
+  /* Slightly tighter spacing */
+  .tl-item {
+    padding: 12px 16px;
+  }
+
+  /* Left items */
+  .tl-item.left {
+    width: 50%;
+    left: 0;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  /* Right items */
+  .tl-item.right {
+    width: 50%;
+    left: 50%;
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  /* Icons stay on the line */
+  .tl-item.left .tl-icon {
+    right: -14px;
+  }
+
+  .tl-item.right .tl-icon {
+    left: -14px;
+  }
+
+  /* Slightly smaller typography for fit */
+  .tl-time {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+  }
+
+  .tl-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+  }
+
+  .tl-icon {
+    font-size: 24px;
+  }
+}
+@media (max-width: 360px) {
+  .tl-item {
+    padding: 12px 14px;
+  }
+
+  .tl-icon {
+    font-size: 22px;
+  }
+}
+/* ===============================
+   📱 MOBILE – PREVENT ICON OVERLAP
+   =============================== */
+@media (hover: none) and (pointer: coarse) {
+
+  /* Give right items more breathing room */
+  .tl-item.right {
+    padding-left: 36px;   /* ✅ more space from center line */
+  }
+
+  /* Push right icon slightly outward */
+  .tl-item.right .tl-icon {
+    left: -20px;
+  }
+
+  /* Optional: tighten left side slightly for balance */
+  .tl-item.left {
+    padding-right: 22px;
+  }
+}
+@media (max-width: 360px) {
+
+  .tl-item.right {
+    padding-left: 42px;
+  }
+
+  .tl-item.right .tl-icon {
+    left: -22px;
+  }
+
+  .tl-icon {
+    font-size: 22px;
+  }
+}
+
+.hero-reveal {
+  opacity: 0;
+  filter: blur(6px);
+  transform: translateY(24px);
+  animation: heroReveal 1.2s ease forwards;
+}
+
+.hero-reveal.delay-1 { animation-delay: 0.4s; }
+.hero-reveal.delay-2 { animation-delay: 0.7s; }
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+
+ h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin-bottom: 10px;
+}
+
+
+/* === IMAGE-MATCHED ENTOURAGE LAYOUT === */
+.entourage-wrapper {
+  width: 100%;
+  margin-top: 16px;
+  font-family: "Playfair Display", serif;
+}
+
+.entourage-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.entourage-col {
+  width: 45%;
+  font-size: 14px;
+  line-height: 1.9;
+  color: #555;
+}
+
+.entourage-col.left {
+  text-align: right;
+}
+
+.entourage-col.right {
+  text-align: left;
+}
+
+.entourage-heading {
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #000;
+}
+
+.entourage-center-title {
+  text-align: center;
+  font-weight: bold;
+  margin: 18px 0 4px;
+  color: #555;
+}
+
+.entourage-center-subtitle {
+  text-align: center;
+  font-style: italic;
+  font-size: 13px;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+/* 📱 MOBILE — KEEP DESKTOP ENTOURAGE VIEW */
+@media (max-width: 480px) {
+  .entourage-row {
+    flex-direction: row;        /* keep side-by-side */
+    justify-content: space-between;
+  }
+
+  .entourage-col {
+    width: 45%;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .entourage-col.left {
+    text-align: right;
+  }
+
+  .entourage-col.right {
+    text-align: left;
+  }
+}
+
+
+
+
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+
+/* ✨ Background Sparkles */
+.sparkle {
+  position: fixed;
+  bottom: -20px;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 212, 225, 0.9) 0%,
+    rgba(255, 212, 225, 0.4) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation-name: sparkleFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes sparkleFloat {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Keep invite content above sparkles */
+.invite {
+  position: relative;
+  z-index: 2;
+}
+
+.entourage-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ece7e8;
+  color: #fff;
+  border: none;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  z-index: 9999;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+/* ===============================
+   🎵 MUSIC BUTTON – ADVANCED FX
+   =============================== */
+
+.music-btn {
+  overflow: visible;
+}
+
+/* --- MINI EQUALIZER --- */
+
+
+.eq span {
+  width: 4px;
+  height: 8px;
+  background: #fff;
+  border-radius: 4px;
+  opacity: 0.85;
+  animation: eqMove 1s infinite ease-in-out;
+}
+
+.eq span:nth-child(1) { animation-delay: 0s; }
+.eq span:nth-child(2) { animation-delay: .15s; }
+.eq span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes eqMove {
+  0%, 100% { height: 6px; }
+  50% { height: 14px; }
+}
+
+/* --- BPM SYNCED PULSE --- */
+.music-btn.playing {
+  animation: bpmPulse var(--bpm) ease-in-out infinite;
+}
+
+@keyframes bpmPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* --- FLOATING MUSIC NOTES --- */
+.music-note {
+  position: fixed;
+  font-size: 16px;
+  color: rgba(255, 182, 193, 0.85);
+  pointer-events: none;
+  animation: noteFloat 3s ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes noteFloat {
+  from {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-20px, -120px) scale(1.3);
+  }
+}
+.music-btn.playing {
+  animation: bpmPulse var(--bpm) ease-in-out infinite;
+}
+/* --- PAUSED STATE --- */
+.music-btn.paused {
+  animation: pausedWiggle 0.4s ease;
+}
+
+@keyframes pausedWiggle {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(0); }
+}
+
+/* Stop EQ when paused */
+.music-btn.paused .eq span {
+  animation: none;
+  height: 4px;
+  opacity: 0.5;
+}
+@media (max-width: 480px) {
+  .tl-icon {
+    left: 2px !important;
+  }
+}
+
+
+
+.music-btn.playing i {
+  animation: musicSpin 4s linear infinite;
+}
+
+/* Ring sound wave */
+.music-btn.playing::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 182, 193, 0.6);
+  animation: soundWave 1.8s ease-out infinite;
+}
+
+/* Pulse glow */
+@keyframes musicPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(251,111,146,0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(251,111,146,0.35),
+      0 0 22px rgba(251,111,146,0.65);
+  }
+}
+
+/* Slow icon rotation */
+@keyframes musicSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Expanding ring */
+@keyframes soundWave {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+
+.music-btn:hover {
+  background: #ff8fac;
+  transform: scale(1.05);
+}
+
+
+
+
+body {
+  color: #555;
+}
+
+h1, h2, h3,
+.section a,
+.date {
+  color: #fb6f92;
+}
+
+
+i,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+  color: #fb6f92 !important;
+}
+::placeholder {
+  color: #fb6f92;
+  opacity: 0.8;
+}
+
+#toggleEntourage {
+  color: #ffffff !important;
+}
+
+#toggleEntourage.active {
+  color: #ffffff !important;
+}
+
+/* Make Entourage button text white */
+#toggleEntourage,
+#toggleEntourage .btn-text,
+#toggleEntourage i {
+  color: #ffffff !important;
+}
+
+
+.faq details {
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.faq details p {
+  animation: faqFade 0.4s ease;
+}
+
+/* Hide all FAQ items initially */
+.faq details {
+  display: none;
+}
+
+
+@keyframes faqFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+#submitBtn {
+  position: relative;
+  overflow: hidden;
+}
+
+#submitBtn::after {
+  content: "❤️";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 26px;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+  transition: all 0.4s ease;
+}
+
+#submitBtn:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -90%) scale(1);
+}
+
+
+
+
+
+/* =============================
+   Venue Link Animations
+   ============================= */
+
+.venue-links {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Base style */
+.venue-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  background: #ffe4e6;
+  color: #fb6f92;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(18px);
+  animation: venueFadeUp 0.8s ease forwards;
+}
+
+/* Staggered entrance */
+.venue-link.reception {
+  animation-delay: 0.25s;
+}
+
+/* Icon bounce */
+.venue-link i {
+  animation: iconFloat 2.4s ease-in-out infinite;
+}
+
+/* Hover lift + glow */
+.venue-link:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow:
+    0 12px 28px rgba(251, 111, 146, 0.35),
+    0 0 18px rgba(251, 111, 146, 0.35);
+}
+
+/* Entrance animation */
+@keyframes venueFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Subtle icon float */
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) translateX(-8px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) translateX(0);
+}
+.entourage-wrapper p {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: nameCascade 0.5s ease forwards;
+}
+.time-box span {
+  display: inline-block;
+}
+
+.time-box span.tick {
+  animation: tickPop 0.3s ease;
+}
+
+@keyframes tickPop {
+  50% { transform: scale(1.08); }
+}
+.venue-link.church {
+  transform: translateX(-20px);
+}
+
+.venue-link.reception {
+  transform: translateX(20px);
+}
+
+.venue-link {
+  opacity: 0;
+  animation: venueReveal 0.8s ease forwards;
+}
+
+@keyframes venueReveal {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.video-bg {
+  animation: slowZoom 30s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.entourage-wrapper p:nth-child(n) {
+  animation-delay: calc(var(--i) * 0.06s);
+}
+
+@keyframes nameCascade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Animated Entourage Button === */
+.toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  margin: 0 auto 22px;
+  padding: 12px 26px;
+  border-radius: 30px;
+
+  background: linear-gradient(135deg, #fb6f92, #ff8fab);
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  cursor: pointer;
+  border: none;
+
+  box-shadow: 0 10px 24px rgba(251,111,146,0.35);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    background 0.35s ease;
+
+  animation: entouragePulse 3s ease-in-out infinite;
+}
+
+.btn-text {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Icon animation */
+.toggle-btn i {
+  transition: transform 0.4s ease;
+}
+
+/* ✨ Sparkle Burst Particles */
+.sparkle-burst {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 212, 225, 1) 0%,
+    rgba(255, 140, 170, 0.8) 40%,
+    transparent 70%
+  );
+  animation: sparkleBurst 900ms ease-out forwards;
+  z-index: 9999;
+}
+
+@keyframes sparkleBurst {
+  from {
+    transform: translate(0, 0) scale(0.8);
+    opacity: 1;
+  }
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+/* Hover effect */
+.toggle-btn:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 14px 36px rgba(251,111,146,0.45),
+    0 0 18px rgba(251,111,146,0.35);
+}
+
+/* Click / tap effect */
+.toggle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Active (open) state */
+.toggle-btn.active {
+  animation: none;
+  background: linear-gradient(135deg, #ff8fab, #fb6f92);
+}
+
+/* Rotate icon when open */
+.toggle-btn.active i {
+  transform: rotate(180deg);
+}
+
+/* Soft pulse animation */
+@keyframes entouragePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+
+
+.faq summary {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 100;
+  font-size: x-small;
+}
+
+.faq details[open] summary {
+  color: #c4a76a;
+}
+
+.color-label {
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-align: center;
+  min-height: 18px;
+  transition: opacity 0.3s ease;
+}
+
+
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 🎥 Fullscreen Video Background */
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -3;
+}
+
+/* Dark overlay for readability */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -2;
+}
+
+
+
+
+.invite {
+  background:
+    linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
+    url("images/xxxxx") center / cover no-repeat;
+  max-width: 800px;
+  width: 100%;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.1);
+  text-align: center;
+}
+
+
+
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 4px;
+  color: #fb6f92;
+}
+
+
+
+/* Wedding Details Sections */
+.details h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin: 18px 0 8px;
+}
+
+.details h4 {
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 14px 0 6px;
+  letter-spacing: 1px;
+  color: #777;
+}
+
+.details p,
+.details li {
+  font-size: 13px;
+  margin: 4px 0;
+  color: #555;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.center {
+  text-align: center;
+}
+
+.small {
+  font-size: 12px;
+  color: #777;
+}
+
+
+.faq h4 {
+  margin-top: 14px;
+  font-weight: 600;
+  color: #fb6f92;
+}
+
+
+
+
+h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  margin-bottom: 4px;
+  color: #fb6f92;
+}
+
+
+
+a {
+  
+  font-size: 15px;
+  margin-bottom: 4px;
+  color-scheme: #fb6f92;
+}
+
+
+.subtitle {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 16px;
+}
+
+.date {
+  font-weight: 500;
+  margin-bottom: 18px;
+  color: #fb6f92;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #fb6f92;
+}
+
+.time-box {
+  background: #ffe4e6;
+  border-radius: 12px;
+  padding: 10px;
+  animation: pulse 2s infinite;
+  color: #fb6f92;
+}
+
+.time-box span {
+  display: block;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fb6f92;
+}
+
+.time-box small {
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+
+
+.section {
+  border-top: 1px dashed #f2c0c8;
+  padding-top: 16px;
+  margin-top: 18px;
+}
+
+.section a {
+  display: block;
+  text-decoration: none;
+  color: #fb6f92;
+  margin: 8px 0;
+}
+
+.section i {
+  margin-right: 6px;
+}
+
+/* RSVP */
+form {
+  margin-top: 12px;
+  text-align: left;
+  color: #fb6f92;
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+ color: #fb6f92;
+}
+
+
+/* Attire Section */
+.attire h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  color: #fb6f92;
+  margin-bottom: 10px;
+}
+
+.attire p {
+  font-size: 13px;
+  color: #555;
+}
+
+
+/* Attire Illustration */
+.attire-illustration {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  animation: attireFadeIn 1.2s ease both;
+}
+
+.attire-illustration img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Subtle hover lift */
+.attire-illustration img:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* Entrance animation */
+@keyframes attireFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.faq-link {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4a76a;
+  text-decoration: none;
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.faq-link:hover {
+  color: #a88f57;
+  text-decoration: underline;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.color-palette span {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+/* Animated Color Palette */
+.color-palette {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+
+
+/* Tooltip Labels */
+.color-palette span {
+  position: relative;
+  cursor: pointer;
+}
+
+/* Tooltip text */
+.color-palette span::after {
+  content: attr(data-label);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(44, 44, 44, 0.9);
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  border-radius: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+/* Tooltip arrow */
+.color-palette span::before {
+  content: "";
+  position: absolute;
+  bottom: 118%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: rgba(44, 44, 44, 0.9) transparent transparent transparent;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+
+/* Show tooltip on hover / focus */
+.color-palette span:hover::after,
+.color-palette span:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .video-bg {
+    display: none;
+  }
+  body {
+    background: url("images/fallback.jpg") center / cover no-repeat;
+  }
+}
+
+
+/* Selected color with dynamic glow */
+.color-palette span.active {
+  outline: 2px solid var(--glow-color);
+  outline-offset: 4px;
+  transform: scale(1.18);
+
+  box-shadow:
+    0 0 0 4px var(--glow-soft),
+    0 0 18px var(--glow-strong),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Smooth animation */
+.color-palette span {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    outline 0.25s ease;
+}
+
+/* Stagger animation timing */
+.color-palette span:nth-child(1) { animation-delay: 0.1s; }
+.color-palette span:nth-child(2) { animation-delay: 0.25s; }
+.color-palette span:nth-child(3) { animation-delay: 0.4s; }
+.color-palette span:nth-child(4) { animation-delay: 0.55s; }
+.color-palette span:nth-child(5) { animation-delay: 0.7s; }
+.color-palette span:nth-child(6) { animation-delay: 0.85s; }
+
+/* Hover effect */
+.color-palette span:hover {
+  transform: scale(1.15);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+}
+
+/* Keyframes */
+@keyframes paletteFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+
+button {
+  width: 100%;
+  background: #ffc2d1;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 18px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+button:hover {
+  background: #ff8fab;
+}
+
+.thankyou {
+  color: #16a34a;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* QR */
+.qr img {
+  width: 140px;
+  margin-top: 6px;
+}
+
+
+#entourageContent {
+  display: none;
+  animation: fadeIn 0.4s ease;
+}
+
+
+.qr small {
+  display: block;
+  color: #777;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+  h1 { font-size: 30px; }
+
+}
+/* ===============================
+   ✨ BODY REVEAL AFTER INTRO
+   =============================== */
+
+
+body.reveal-content .invite {
+  animation: bodyReveal 1.2s ease forwards;
+}
+
+@keyframes bodyReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* 💗 Make ALL Entourage text pink */
+#entourageContent,
+#entourageContent * {
+  color: #fb6f92 !important;
+}
+/* 💗 Entourage text color */
+#entourageContent p,
+#entourageContent h4,
+#entourageContent h3,
+#entourageContent h2,
+#entourageContent .entourage-heading,
+#entourageContent .entourage-center-title,
+#entourageContent .entourage-center-subtitle,
+#entourageContent strong {
+  color: #fb6f92;
+}
+
+
+
+</style>
+</head>
+
+
+
+<script>
+  const reveals = document.querySelectorAll('.section, .details');
+
+  function revealOnScroll() {
+    const height = window.innerHeight;
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < height - 80) {
+        el.classList.add('reveal', 'active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  revealOnScroll();
+</script>
+
+
+
+<audio id="bgMusic" loop>
+  <source src="music/wedding-song.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+
+<body>
+
+<!-- 🎥 Background Video -->
+<video class="video-bg" autoplay muted loop playsinline>
+  <source src="videos/AI.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<!-- Optional dark overlay -->
+<div class="video-overlay"></div>
+
+
+
+
+
+
+
+<button id="musicToggle" class="music-btn">
+  <div class="eq">
+    <span></span><span></span><span></span>
+  </div>
+  <i class="fa-solid fa-music"></i>
+</button>
+
+<script>
+  const music = document.getElementById("bgMusic");
+  const toggle = document.getElementById("musicToggle");
+
+  const BPM = 96; // 🎼 change if needed
+  toggle.style.setProperty("--bpm", `${60 / BPM}s`);
+
+  let isPlaying = false;
+  let noteInterval;
+
+  function spawnMusicNote() {
+    const note = document.createElement("div");
+    note.className = "music-note";
+    note.textContent = Math.random() > 0.5 ? "🎵" : "🎶";
+
+    const rect = toggle.getBoundingClientRect();
+    note.style.left = rect.left + rect.width / 2 + "px";
+    note.style.top = rect.top + "px";
+
+    document.body.appendChild(note);
+    setTimeout(() => note.remove(), 3000);
+  }
+
+  function startNotes() {
+    noteInterval = setInterval(spawnMusicNote, 900);
+  }
+
+  function stopNotes() {
+    clearInterval(noteInterval);
+  }
+
+  const startMusic = () => {
+    if (!isPlaying) {
+      music.play().then(() => {
+        isPlaying = true;
+        toggle.classList.add("playing");
+        toggle.classList.remove("paused");
+        toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
+        startNotes();
+      }).catch(() => {});
+    }
+
+    document.removeEventListener("click", startMusic);
+    document.removeEventListener("touchstart", startMusic);
+    document.removeEventListener("scroll", startMusic);
+  };
+
+  document.addEventListener("click", startMusic);
+  document.addEventListener("touchstart", startMusic);
+  document.addEventListener("scroll", startMusic);
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    if (isPlaying) {
+      music.pause();
+      stopNotes();
+      toggle.classList.remove("playing");
+      toggle.classList.add("paused");
+      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-music"></i>';
+    } else {
+      music.play();
+      startNotes();
+      toggle.classList.add("playing");
+      toggle.classList.remove("paused");
+      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
+    }
+
+    isPlaying = !isPlaying;
+  });
+</script>
+
+  <script>
+  const sparkleCount = 30;
+
+  for (let i = 0; i < sparkleCount; i++) {
+    createSparkle();
+  }
+
+  function createSparkle() {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.animationDuration = 6 + Math.random() * 6 + "s";
+    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    sparkle.style.width = sparkle.style.height =
+      4 + Math.random() * 4 + "px";
+
+    document.body.appendChild(sparkle);
+
+    sparkle.addEventListener("animationend", () => {
+      sparkle.remove();
+      createSparkle();
+    });
+  }
+</script>
+
+
+<div class="invite">
+  <h1>Frequently Asked Questions</h1>
+
+  <details>
+    <summary>WHEN SHOULD I RSVP BY?</summary>
+    <p>
+      Please send your RSVP as soon as you can. The earlier, the better!<br><br>
+      The latest we can accept your response is on
+      <strong>August 25, 2026</strong>.
+      If we will not receive a response by this date, it will be marked as a
+      <strong>“NO”</strong>.<br><br>
+      We will miss you celebrating with us; however, we must properly provide the
+      total guest count to our venue and suppliers. We hope you understand.<br><br>
+      To RSVP, go to the <strong>“Guest RSVP”</strong> tab.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT SHOULD I WEAR?</summary>
+    <p>
+      Refer to the attire guide under the <strong>“Attire”</strong> tab.
+      Check it out!<br><br>
+      <strong>Note:</strong> STRICTLY no wearing of white dress, jeans, or slippers.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I BRING A DATE (PLUS ONE)?</summary>
+    <p>
+      Unfortunately, no. We will specifically inform you if you can have a plus one.
+      We hope you understand that we can no longer accommodate those who are not
+      listed on our guest list due to limited seats at the venue.
+    </p>
+  </details>
+
+  <details>
+    <summary>ARE KIDS ALLOWED?</summary>
+    <p>
+      We certainly love your kids, but due to necessity rather than choice, we
+      regretfully cannot accommodate them at the venue.
+      The only kids attending are those who are part of the entourage and those
+      requested. We hope you understand and enjoy the night off.
+    </p>
+  </details>
+
+  <details>
+    <summary>IS THE CEREMONY AND RECEPTION AT THE SAME PLACE?</summary>
+    <p>
+      No. The church and reception hall are not located in the same place.
+      More details about the locations can be found in the <strong>“Venue”</strong>
+      tab. Check it out!
+    </p>
+  </details>
+
+  <details>
+    <summary>IS THERE A PARKING SPACE PROVIDED?</summary>
+    <p>
+      Yes. There is free parking available for all wedding guests.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT TIME SHOULD I ARRIVE?</summary>
+    <p>
+      We encourage our wedding guests to be at the venue
+      <strong>30 minutes before</strong> our
+      <strong>2:00 PM</strong> ceremony time, to have ample time to settle and find a
+      seat.<br><br>
+      Kindly consider traffic and travel time going to the venue.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT DO I DO IF I’M LATE TO THE CEREMONY?</summary>
+    <p>
+      If you are late to the ceremony, please do not walk down the aisle and try to
+      find a seat.<br><br>
+      While we want all of our friends and family there, we would appreciate it if
+      you would ask assistance from our coordinator or wait to join us until the
+      reception. Thank you for understanding.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I TAKE PHOTOS OR VIDEOS DURING THE CEREMONY?</summary>
+    <p>
+      We encourage our guests to refrain from taking photos or videos during the
+      ceremony as we have hired an amazing team to capture the moments.
+      Guests may still do so.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHAT SHOULD I DO ONCE THE CEREMONY IS DONE?</summary>
+    <p>
+      There will be a cocktail hour after the ceremony wherein afternoon snacks will
+      be served.<br><br>
+      You may also choose this time to find your seat, mingle with other guests,
+      use the photo booth, and get your souvenirs.
+      Our coordinators will be available if you need any assistance.
+    </p>
+  </details>
+
+  <details>
+    <summary>CAN I SEAT ANYWHERE DURING THE RECEPTION?</summary>
+    <p>
+      Yes. Feel free to sit anywhere during the reception, pick a spot you like,
+      mingle around, and make yourself at home.<br><br>
+      <strong>Note:</strong> Our principal sponsors will have designated seats
+      reserved for them.
+    </p>
+  </details>
+
+  <details>
+    <summary>WHEN IS THE APPROPRIATE TIME TO LEAVE?</summary>
+    <p>
+      It took us almost a year to plan a wedding that everyone will hopefully enjoy.
+      We encourage our guests to finish the program.<br><br>
+      We aim to end at <strong>9:00 PM to 10:00 PM</strong>.
+    </p>
+  </details>
+
+  <details>
+    <summary>HOW CAN I HELP THE COUPLE TO HAVE THE BEST TIME ON THEIR WEDDING DAY?</summary>
+    <p>
+      Be there on time. Wear appropriate attire. Stay until the end of the program.
+      Participate and have <strong>FUN!</strong>
+    </p>
+  </details>
+
+  <details>
+    <summary>OTHER QUESTIONS OR CONCERNS?</summary>
+    <p>
+      You may contact us thru Facebook Messenger or via SMS:<br><br>
+      <strong>Nichole:</strong> 0969 096 1848<br>
+      <strong>Marc Jovin:</strong> 0947 000 0335
+    </p>
+  </details>
+<div><a href="../index.html">Back to home</a></div>
+</div>
+
+
+
+
+
+<script>
+  const toggleBtn = document.getElementById('toggleAllFaqs');
+  const allDetails = document.querySelectorAll('.faq details');
+  let faqsVisible = false;
+
+  toggleBtn.addEventListener('click', () => {
+    faqsVisible = !faqsVisible;
+
+    allDetails.forEach(detail => {
+      detail.style.display = faqsVisible ? 'block' : 'none';
+      detail.open = false; // collapse answers when hiding
+    });
+
+    toggleBtn.textContent = faqsVisible ? 'Hide FAQs' : 'FAQs';
+
+    if (faqsVisible && allDetails.length) {
+      allDetails[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
