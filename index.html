@@ -26,6 +26,10 @@
 
   <div class="countdown" id="countdown"></div>
 
+
+
+
+  
 <script>
 (() => {
   const target = new Date("2026-10-10T14:00:00").getTime();
@@ -100,25 +104,17 @@ document.querySelectorAll(".time-box span").forEach(el => {
   });
 </script>
 
-<div class="section">
-  <a
-    class="calendar-btn"
-    target="_blank"
-    href="https://www.google.com/calendar/render?action=TEMPLATE
-&text=Nichole+%26+Jovin+Wedding
-&dates=20261010T060000Z/20261010T140000Z
-&details=We+are+getting+married!+Join+us+to+celebrate+our+wedding+day.
-&location=St.+Dominic+of+Guzman+Parish+Church,+Santo+Domingo,+Ilocos+Sur
-"
-  >
-    <i class="fa-solid fa-calendar-plus"></i>
-    Add to Google Calendar
-  </a>
-</div>
+<div class="section"></div>
 
 <div class="nav-buttons">
+    <a href="pages/moments.html" class="nav-btn">
+    <i class="fa-solid fa-camera-retro"></i> Our Moments
+  </a>
   <a href="pages/entourage.html" class="nav-btn">
     <i class="fa-solid fa-users"></i> Entourage
+  </a>
+    <a href="pages/attire.html" class="nav-btn">
+    <i class="fa-solid fa-shirt"></i> Dress Code
   </a>
 
   <a href="pages/venue.html" class="nav-btn">
@@ -126,7 +122,7 @@ document.querySelectorAll(".time-box span").forEach(el => {
   </a>
 
   <a href="pages/details.html" class="nav-btn">
-    <i class="fa-solid fa-circle-info"></i> Click for Details
+    <i class="fa-solid fa-circle-info"></i> The Finer Details
   </a>
 
   <a href="pages/faqs.html" class="nav-btn">
@@ -135,6 +131,13 @@ document.querySelectorAll(".time-box span").forEach(el => {
 </div>
 
 <style>
+  .bottom-line {
+  margin-top: 40px;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
   /* ✨ Transparent RSVP Fields (Glass Style) */
 input,
 select,
@@ -884,12 +887,18 @@ i,
   overflow: hidden;
   border-radius: 18px;
 
-  background: linear-gradient(135deg, #f5b2c3, #fcd5ce);
-  color: #ffffff;
+  /* ✅ Transparent glass look */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #fff;
 
   box-shadow:
     0 8px 20px rgba(0,0,0,0.15),
-    0 0 0 rgba(245,178,195,0);
+    inset 0 1px 0 rgba(255,255,255,0.4);
 
   transition: all 0.35s ease;
 }
@@ -2033,7 +2042,7 @@ body * {
   }
 </script>
 
-
+<div class="section"></div>
 <div class="invite">
   
 <div>
@@ -2123,7 +2132,7 @@ body * {
 
 
 </div></div>
-
+<hr class="bottom-line">
 </body>
 
 
