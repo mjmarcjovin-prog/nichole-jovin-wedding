@@ -13,145 +13,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
 
-
-
-<div class="invite">
- 
-
-  <img src="images/monogram.png" alt="Jovin & Nichole Monogram" class="top-logo">
-
-  <h1>Jovin &amp; Nichole</h1>
-  <div class="subtitle">"We love because he first loved us."</div>
-  <p>1 John 4:19</p>
-  <div class="date">October 10, 2026 | 2:00 PM</div>
-
-
-  <div class="countdown" id="countdown"></div>
-
-
-
-
-  
-<script>
-(() => {
-  const target = new Date("2026-10-10T14:00:00").getTime();
-  const cd = document.getElementById("countdown");
-
-  if (!cd) return;
-
-  setInterval(() => {
-    const now = Date.now();
-    const diff = target - now;
-
-    if (diff <= 0) {
-      cd.innerHTML = "<strong>🎉 Today is the Big Day! 🎉</strong>";
-      return;
-    }
-
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff / 3600000) % 24;
-    const m = Math.floor(diff / 60000) % 60;
-    const s = Math.floor(diff / 1000) % 60;
-
-    cd.innerHTML = `
-      <div class="time-box"><span>${d}</span><small>Days</small></div>
-      <div class="time-box"><span>${h}</span><small>Hours</small></div>
-      <div class="time-box"><span>${m}</span><small>Minutes</small></div>
-      <div class="time-box"><span>${s}</span><small>Seconds</small></div>`;
-
-
-document.querySelectorAll(".time-box span").forEach(el => {
-  el.classList.remove("tick");
-  void el.offsetWidth;
-  el.classList.add("tick");
-});
-
-
-
-  }, 1000);
-})();
-</script>
-
-<script>
-  const timeline = document.querySelector('.timeline-svg');
-
-  if ('IntersectionObserver' in window && timeline) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          timeline.classList.remove('replay');
-          void timeline.offsetWidth; // force reflow
-          timeline.classList.add('replay');
-        }
-      });
-    }, { threshold: 0.4 });
-
-    observer.observe(timeline);
-  }
-</script>
-<script>
-  // 📱 Mobile tap highlight for timeline
-  document.querySelectorAll(".tl-item").forEach(item => {
-    item.addEventListener("touchstart", () => {
-      item.classList.add("tap-active");
-    }, { passive: true });
-
-    item.addEventListener("touchend", () => {
-      item.classList.remove("tap-active");
-    });
-
-    item.addEventListener("touchcancel", () => {
-      item.classList.remove("tap-active");
-    });
-  });
-</script>
-
-
-
-<h4></h4>
-
-<a
-    class="calendar-btn"
-    target="_blank"
-    href="https://www.google.com/calendar/render?action=TEMPLATE
-&text=Jovin+%26+Nichole+Wedding
-&dates=20261010T060000Z/20261010T140000Z
-&details=We+are+getting+married!+Join+us+to+celebrate+our+wedding+day.
-&location=St.+Dominic+of+Guzman+Parish+Church,+Santo+Domingo,+Ilocos+Sur
-"
-  >
-    <i class="fa-solid fa-calendar-plus"></i>
-    Add to Google Calendar
-  </a>
-
-
-
-<hr class="bottom-line">
-
-<div class="nav-buttons">
-    <a href="pages/moments.html" class="nav-btn">
-    <i class="fa-solid fa-camera-retro"></i> Our Moments
-  </a>
-  <a href="pages/entourage.html" class="nav-btn">
-    <i class="fa-solid fa-users"></i> Entourage
-  </a>
-    <a href="pages/attire.html" class="nav-btn">
-    <i class="fa-solid fa-shirt"></i> Dress Code
-  </a>
-
-  <a href="pages/venue.html" class="nav-btn">
-    <i class="fa-solid fa-location-dot"></i> Venue
-  </a>
-
-  <a href="pages/details.html" class="nav-btn">
-    <i class="fa-solid fa-circle-info"></i> The Finer Details
-  </a>
-
-  <a href="pages/faqs.html" class="nav-btn">
-    <i class="fa-solid fa-comments"></i> Frequently Asked Questions
-  </a>
-</div>
-
 <style>
 
   .bottom-line {
@@ -1952,6 +1813,143 @@ body * {
 
 
 </style>
+
+<div class="invite">
+ 
+  <img src="images/monogram.png" alt="Jovin & Nichole Monogram" class="top-logo">
+
+  <h1>Jovin &amp; Nichole</h1>
+  <div class="subtitle">"We love because he first loved us."</div>
+  <p>1 John 4:19</p>
+  <div class="date">October 10, 2026 | 2:00 PM</div>
+
+
+  <div class="countdown" id="countdown"></div>
+
+
+
+
+  
+<script>
+(() => {
+  const target = new Date("2026-10-10T14:00:00").getTime();
+  const cd = document.getElementById("countdown");
+
+  if (!cd) return;
+
+  setInterval(() => {
+    const now = Date.now();
+    const diff = target - now;
+
+    if (diff <= 0) {
+      cd.innerHTML = "<strong>🎉 Today is the Big Day! 🎉</strong>";
+      return;
+    }
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor(diff / 3600000) % 24;
+    const m = Math.floor(diff / 60000) % 60;
+    const s = Math.floor(diff / 1000) % 60;
+
+    cd.innerHTML = `
+      <div class="time-box"><span>${d}</span><small>Days</small></div>
+      <div class="time-box"><span>${h}</span><small>Hours</small></div>
+      <div class="time-box"><span>${m}</span><small>Minutes</small></div>
+      <div class="time-box"><span>${s}</span><small>Seconds</small></div>`;
+
+
+document.querySelectorAll(".time-box span").forEach(el => {
+  el.classList.remove("tick");
+  void el.offsetWidth;
+  el.classList.add("tick");
+});
+
+
+
+  }, 1000);
+})();
+</script>
+
+<script>
+  const timeline = document.querySelector('.timeline-svg');
+
+  if ('IntersectionObserver' in window && timeline) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          timeline.classList.remove('replay');
+          void timeline.offsetWidth; // force reflow
+          timeline.classList.add('replay');
+        }
+      });
+    }, { threshold: 0.4 });
+
+    observer.observe(timeline);
+  }
+</script>
+<script>
+  // 📱 Mobile tap highlight for timeline
+  document.querySelectorAll(".tl-item").forEach(item => {
+    item.addEventListener("touchstart", () => {
+      item.classList.add("tap-active");
+    }, { passive: true });
+
+    item.addEventListener("touchend", () => {
+      item.classList.remove("tap-active");
+    });
+
+    item.addEventListener("touchcancel", () => {
+      item.classList.remove("tap-active");
+    });
+  });
+</script>
+
+
+
+<h4></h4>
+
+<a
+    class="calendar-btn"
+    target="_blank"
+    href="https://www.google.com/calendar/render?action=TEMPLATE
+&text=Jovin+%26+Nichole+Wedding
+&dates=20261010T060000Z/20261010T140000Z
+&details=We+are+getting+married!+Join+us+to+celebrate+our+wedding+day.
+&location=St.+Dominic+of+Guzman+Parish+Church,+Santo+Domingo,+Ilocos+Sur
+"
+  >
+    <i class="fa-solid fa-calendar-plus"></i>
+    Add to Google Calendar
+  </a>
+
+
+
+<hr class="bottom-line">
+
+<div class="nav-buttons">
+    <a href="pages/moments.html" class="nav-btn">
+    <i class="fa-solid fa-camera-retro"></i> Our Moments
+  </a>
+  <a href="pages/entourage.html" class="nav-btn">
+    <i class="fa-solid fa-users"></i> Entourage
+  </a>
+    <a href="pages/attire.html" class="nav-btn">
+    <i class="fa-solid fa-shirt"></i> Dress Code
+  </a>
+
+  <a href="pages/venue.html" class="nav-btn">
+    <i class="fa-solid fa-location-dot"></i> Venue
+  </a>
+
+  <a href="pages/details.html" class="nav-btn">
+    <i class="fa-solid fa-circle-info"></i> The Finer Details
+  </a>
+
+  <a href="pages/faqs.html" class="nav-btn">
+    <i class="fa-solid fa-comments"></i> Frequently Asked Questions
+  </a>
+</div>
+
 </head>
 
 
@@ -1986,7 +1984,7 @@ body * {
 
 <!-- 🎥 Background Video -->
 <video class="video-bg" autoplay muted loop playsinline>
-  <source src="../videos/AI.mp4" type="video/mp4">
+  <source src="videos/AI.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
