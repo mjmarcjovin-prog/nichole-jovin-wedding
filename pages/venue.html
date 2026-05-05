@@ -12,8 +12,241 @@
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+
 <style>
- 
+
+  .venue-link.church {
+  position: relative;
+  display: flex;
+
+  height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("images/church.png") center / cover no-repeat;
+
+  /* ✅ PERFECT CENTERING */
+  flex-direction: column;        /* stack text */
+  align-items: center;           /* horizontal center */
+  justify-content: center;       /* vertical center */
+  text-align: center;
+
+  padding: 20px;
+  color: #ffffff;
+}
+
+.venue-link.church {
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("../images/church.png") center / cover no-repeat;
+}
+.venue-link.church i {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.venue-link.church strong {
+  font-size: 16px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.venue-link.church {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+  .venue-link.reception {
+  position: relative;
+  display: flex;
+
+  height: 220px;
+  border-radius: 22px;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
+    url("images/selavie.png") center / cover no-repeat;
+
+  /* ✅ PERFECT CENTERING */
+  flex-direction: column;        /* stack text */
+  align-items: center;           /* horizontal center */
+  justify-content: center;       /* vertical center */
+  text-align: center;
+
+  padding: 20px;
+  color: #ffffff;
+}
+
+.venue-link.reception {
+  background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("../images/selavie.png") center / cover no-repeat;
+}
+.venue-link.reception i {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.venue-link.reception strong {
+  font-size: 16px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.venue-link.reception {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+  .bottom-line {
+  margin-top: 40px;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 63%;
+}
+  /* ✨ Transparent RSVP Fields (Glass Style) */
+input,
+select,
+textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+
+  /* ✅ Transparent look */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #fb6f92;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 6px 18px rgba(0,0,0,0.15);
+
+  transition: all 0.3s ease;
+}
+  select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fb6f92' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #fb6f92;
+  box-shadow:
+    0 0 10px rgba(251,111,146,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+  .nav-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+  
+}
+
+.nav-btn i {
+  color: #e2b8b8 !important;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.08); /* very light glass */
+}
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  /* ✨ Transparent glass look */
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #e4b3b3;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all 0.35s ease;
+}
+
+
+.nav-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  box-shadow:
+    0 12px 35px rgba(251,111,146,0.25),
+    0 0 18px rgba(251,111,146,0.3);
+}
+
+/* Click effect */
+.nav-btn:active {
+  transform: scale(0.96);
+}
+h1 {
+  margin-top: -10px; /* move it upward */
+  margin-bottom: 8px; /* optional: tighten space below */
+  margin-top: 50px;
+  margin-bottom: 8px;
+  font-size: 35px; /* adjust size here */
+
+font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  color: #f5b2c3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+
+}
+ .top-logo {
+  display: block;
+  margin: 0 auto 0px;   /* center + space below */
+  max-width: 150px;      /* adjust size if needed */
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: -5px; /* pulls the names closer to the logo */
+  margin-bottom: -5px;
+
+
+  /* optional soft entrance */
+  animation: fadeLogo 1.2s ease;
+}
+
+@keyframes fadeLogo {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+  }
+}
+``
 
 /* 🌸 Float motion */
 @keyframes iconFloat {
@@ -85,7 +318,7 @@
   font-size: 11px;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: #777;
+  color: #fcf9f9;
   margin-top: 4px;
 }
 
@@ -328,7 +561,7 @@
   text-align: center;
   font-weight: bold;
   margin: 18px 0 4px;
-  color: #555;
+  color: #f8f7f7;
 }
 
 .entourage-center-subtitle {
@@ -336,7 +569,7 @@
   font-style: italic;
   font-size: 13px;
   margin-bottom: 16px;
-  color: #555;
+  color: #f5f2f2;
 }
 
 /* 📱 MOBILE — KEEP DESKTOP ENTOURAGE VIEW */
@@ -575,18 +808,13 @@ body {
   color: #555;
 }
 
-h1, h2, h3,
-.section a,
-.date {
-  color: #fb6f92;
-}
 
 
 i,
 .fa-solid,
 .fa-regular,
 .fa-brands {
-  color: #fb6f92 !important;
+  color: #f5b2c3 !important;
 }
 ::placeholder {
   color: #fb6f92;
@@ -630,25 +858,87 @@ i,
 }
 
 
+/* 💎 LUXURY SUBMIT BUTTON */
 #submitBtn {
   position: relative;
   overflow: hidden;
+  border-radius: 18px;
+
+  /* ✅ Transparent glass look */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #fff;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all 0.35s ease;
 }
 
-#submitBtn::after {
-  content: "❤️";
+/* ✨ Hover glow */
+#submitBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 30px rgba(245,178,195,0.35),
+    0 0 18px rgba(245,178,195,0.45);
+}
+
+/* ✨ CLICK PRESS EFFECT */
+#submitBtn:active {
+  transform: scale(0.97);
+}
+
+/* ✨ GOLD SHINE SWEEP */
+#submitBtn::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 26px;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.6);
-  transition: all 0.4s ease;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+
+  transform: skewX(-25deg);
 }
 
-#submitBtn:hover::after {
-  opacity: 1;
-  transform: translate(-50%, -90%) scale(1);
+/* Animate shine */
+#submitBtn:hover::before {
+  animation: luxuryShine 1s ease forwards;
+}
+
+@keyframes luxuryShine {
+  to {
+    left: 130%;
+  }
+}
+
+/* ✨ SOFT PULSE (idle elegance) */
+#submitBtn {
+  animation: luxuryPulseBtn 3.5s ease-in-out infinite;
+}
+
+@keyframes luxuryPulseBtn {
+  0%, 100% {
+    box-shadow:
+      0 8px 20px rgba(0,0,0,0.15),
+      0 0 0 rgba(245,178,195,0);
+  }
+  50% {
+    box-shadow:
+      0 12px 28px rgba(0,0,0,0.2),
+      0 0 16px rgba(245,178,195,0.4);
+  }
 }
 
 
@@ -935,36 +1225,25 @@ body {
 
 
 
-
 .invite {
   background:
-    linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
-    url("images/xxxxx") center / cover no-repeat;
-  max-width: 800px;
+background: rgba(255,255,255,0.08); /* very light glass */
+  max-width: 700px;
   width: 100%;
-  padding: 24px;
+  padding: 16px 20px;   /* reduce from 24px */
   border-radius: 22px;
   box-shadow: 0 15px 40px rgba(0,0,0,.1);
   text-align: center;
+  background-size: cover;
+  background-position: top;
 }
-
-
-
-
-h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 34px;
-  margin-bottom: 4px;
-  color: #fb6f92;
-}
-
 
 
 /* Wedding Details Sections */
 .details h2 {
   font-family: "Playfair Display", serif;
   font-size: 22px;
-  color: #fb6f92;
+  color: #eccad3;
   margin: 18px 0 8px;
 }
 
@@ -973,14 +1252,14 @@ h1 {
   text-transform: uppercase;
   margin: 14px 0 6px;
   letter-spacing: 1px;
-  color: #777;
+  color: #e7c8c8;
 }
 
 .details p,
 .details li {
   font-size: 13px;
   margin: 4px 0;
-  color: #555;
+  color: #ebdede;
 }
 
 .grid-2 {
@@ -1008,12 +1287,12 @@ h1 {
 
 
 
+
 h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 34px;
-  margin-bottom: 4px;
-  color: #fb6f92;
+  margin-top: 0;
+  padding-top: 0;
 }
+
 
 
 
@@ -1037,35 +1316,214 @@ a {
   color: #fb6f92;
 }
 
+/* ===============================
+   💎 LUXURY COUNTDOWN STYLE
+   =============================== */
+
+@media (max-width: 480px) {
+  .countdown {
+    grid-template-columns: repeat(4, 50px);
+    gap: 6px;
+  }
+
+  .time-box {
+    padding: 8px 4px;
+  }
+
+  .time-box span {
+    font-size: 16px;
+  }
+
+  .time-box small {
+    font-size: 6px;
+  }
+}
+
+
 .countdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(50px, 80px));
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
-  color: #fb6f92;
 }
 
 .time-box {
-  background: #ffe4e6;
-  border-radius: 12px;
-  padding: 10px;
-  animation: pulse 2s infinite;
-  color: #fb6f92;
+  padding: 10px 6px;
 }
 
 .time-box span {
-  display: block;
-  font-size: 22px;
-  font-weight: 600;
-  color: #fb6f92;
+  font-size: clamp(16px, 3vw, 22px);
 }
 
 .time-box small {
-  text-transform: uppercase;
-  font-size: 10px;
+  font-size: clamp(7px, 1.5vw, 10px);
 }
 
 
+/* Glass + gold card */
+.time-box {
+  position: relative;
+  padding: 14px 10px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(196, 167, 106, 0.25);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12),
+    inset 0 1px 0 #fb6f92;
+
+  transition: all 0.4s ease;
+}
+
+/* ✨ Elegant hover lift */
+.time-box:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.18),
+    0 0 18px #fb6f92;
+}
+
+/* Top gold line accent */
+.time-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #fb6f92, transparent);
+}
+
+/* Main number */
+.time-box span {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #fb6f92, #f1e3c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 0.03em;
+}
+
+/* Label text */
+.time-box small {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: #fb6f92;
+}
+
+/* ✨ Subtle breathing glow */
+@keyframes luxuryPulse {
+  0%, 100% {
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.12),
+      0 0 0 rgba(196,167,106,0);
+  }
+  50% {
+    box-shadow:
+      0 14px 32px rgba(0,0,0,0.16),
+      0 0 12px rgba(196,167,106,0.25);
+  }
+}
+
+.time-box {
+  animation: luxuryPulse 4s ease-in-out infinite;
+}
+
+/* ✨ Tick animation (refined) */
+.time-box span.tick {
+  animation: luxuryTick 0.35s ease;
+}
+
+@keyframes luxuryTick {
+  50% {
+    transform: scale(1.12);
+    text-shadow: 0 0 10px rgba(196,167,106,0.5);
+  }
+}
+
+.countdown::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 22px;
+  background: radial-gradient(
+    circle,
+    rgba(196,167,106,0.12),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* ===============================
+   🕊 COUNTDOWN HALO CONTAINER
+   =============================== */
+
+.countdown {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Soft ambient glow behind */
+.countdown::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 28px;
+
+  background: radial-gradient(
+    circle,
+    rgba(212,175,55,0.18) 0%,
+    rgba(255,255,255,0.05) 40%,
+    transparent 70%
+  );
+
+  filter: blur(18px);
+  z-index: -2;
+}
+
+/* ✨ Floating particles */
+.cd-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #f8e7c7 0%,
+    #d4af37 40%,
+    transparent 70%
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+  animation: cdFloat linear infinite;
+}
+
+/* Floating animation */
+@keyframes cdFloat {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(-80px) scale(1.2);
+    opacity: 0;
+  }
+}
 
 .section {
   border-top: 1px dashed #f2c0c8;
@@ -1076,7 +1534,7 @@ a {
 .section a {
   display: block;
   text-decoration: none;
-  color: #fb6f92;
+  color: #f7cbd6;
   margin: 8px 0;
 }
 
@@ -1088,7 +1546,15 @@ a {
 form {
   margin-top: 12px;
   text-align: left;
-  color: #fb6f92;
+  color: #f1dae0;
+
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.invite form {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 input, select, textarea {
@@ -1098,7 +1564,7 @@ input, select, textarea {
   padding: 10px;
   margin-bottom: 12px;
   font-size: 14px;
- color: #fb6f92;
+ color: #f0dae0;
 }
 
 
@@ -1194,7 +1660,31 @@ input, select, textarea {
   flex-wrap: wrap;
 }
 
+/* ✅ RSVP TEXT — FORCE WHITE */
+form,
+form label,
+form h3,
+form p,
+form small,
+form option,
+form select,
+form input,
+form textarea,
+form button,
+#submitBtn,
+::placeholder {
+  color: #eccece !important;
+}
 
+/* Dropdown options (some browsers need this) */
+select option {
+  color: #000; /* keep readable inside dropdown */
+}
+
+/* Keep icons white inside RSVP if any */
+form i {
+  color: #ffffff !important;
+}
 
 /* Tooltip Labels */
 .color-palette span {
@@ -1310,7 +1800,7 @@ input, select, textarea {
 
 button {
   width: 100%;
-  background: #ffc2d1;
+  background: rgba(255,255,255,0.08); /* very light glass */
   color: #fff;
   border: none;
   padding: 12px;
@@ -1321,7 +1811,7 @@ button {
 }
 
 button:hover {
-  background: #ff8fab;
+  background: rgba(255,255,255,0.08); /* very light glass */
 }
 
 .thankyou {
@@ -1360,9 +1850,7 @@ button:hover {
   50% { transform: scale(1.05); }
 }
 
-/* Mobile */
-@media (max-width: 400px) {
-  h1 { font-size: 30px; }
+
 
 }
 /* ===============================
@@ -1404,6 +1892,11 @@ body.reveal-content .invite {
   color: #fb6f92;
 }
 
+/* 💖 FORCE ALL TEXT TO #f5b2c3 */
+body,
+body * {
+  color: #f5b2c3 !important;
+}
 
 
 </style>
@@ -1416,10 +1909,9 @@ body.reveal-content .invite {
 
 
 <body>
-
 <!-- 🎥 Background Video -->
 <video class="video-bg" autoplay muted loop playsinline>
-  <source src="videos/AI.mp4" type="video/mp4">
+  <source src="../videos/AI.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -1433,7 +1925,7 @@ body.reveal-content .invite {
 
 <div class="invite">
 
-
+<hr class="bottom-line">
 <h1>Venue</h1>
 
 <div class="venue-links reveal-venue">
@@ -1442,16 +1934,21 @@ body.reveal-content .invite {
      class="venue-link church">
     <i class="fa-solid fa-church"></i> <strong>Church Location</strong><br>St. Dominic of Guzman Parish Church - Nalasin, Santo Domingo, Ilocos Sur 
   </a>
-
+<hr class="bottom-line">
   <a target="_blank"
      href="https://www.google.com/maps/place/Selah+Vie+Resort+Hotel..."
      class="venue-link reception">
     <i class="fa-solid fa-location-dot"></i> <strong>Reception Venue</strong><br>Selah Vie Resort Hotel, San Ildefonso, Ilocos Sur
   </a>
-<div><a href="../index.html">Back to home</a></div>
+  <hr class="bottom-line">
+<div class="nav-buttons">
+    <a href="../index.html" class="nav-btn">
+    <i class=""></i> Back to Home
+  </a>
+
 </div>
 
-
+<hr class="bottom-line">
 
 <script>
   const venueLinks = document.querySelectorAll(".venue-link");
