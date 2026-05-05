@@ -12,8 +12,191 @@
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
+
+
 <style>
- 
+/* =========================
+   📸 OUR MOMENTS GALLERY
+   ========================= */
+
+.moments-gallery {
+  margin-top: 10px;
+  animation: fadeSlide 1s ease;
+}
+
+/* 🎥 VIDEO */
+.gallery-item.video video {
+  width: 100%;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  margin-bottom: 75px;
+}
+
+/* 🖼 PHOTO GRID */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* 💎 Hover / Tap effect */
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 12px 30px rgba(251,111,146,0.35),
+    0 0 12px rgba(251,111,146,0.25);
+}
+
+/* 📱 Mobile tweak */
+@media (max-width: 480px) {
+  .gallery-grid img {
+    height: 110px;
+  }
+}
+
+
+  /* ✅ Transparent look */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  color: #fb6f92;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.4),
+    0 6px 18px rgba(0,0,0,0.15);
+
+  transition: all 0.3s ease;
+}
+  select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23fb6f92' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #fb6f92;
+  box-shadow:
+    0 0 10px rgba(251,111,146,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+}
+  .nav-buttons {
+  display: grid;
+  gap: 12px;
+  margin-top: 75px;
+  
+}
+
+.nav-btn i {
+  color: #e2b8b8 !important;
+}
+
+.nav-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 1px;
+  background: rgba(255,255,255,0.08); /* very light glass */
+}
+.nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 22px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+
+  /* ✨ Transparent glass look */
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #e4b3b3;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all 0.35s ease;
+}
+  .bottom-line {
+  margin-top: 40px;
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 63%;
+
+.nav-btn:hover {  
+  transform: translateY(-4px) scale(1.03);
+
+  background: rgba(255,255,255,0.08); /* very light glass */
+
+  box-shadow:
+    0 12px 35px rgba(251,111,146,0.25),
+    0 0 18px rgba(251,111,146,0.3);
+}
+
+/* Click effect */
+.nav-btn:active {
+  transform: scale(0.96);
+}
+h1 {
+  margin-top: -10px; /* move it upward */
+  margin-bottom: 8px; /* optional: tighten space below */
+  margin-top: 50px;
+  margin-bottom: 8px;
+  font-size: 35px; /* adjust size here */
+
+font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  color: #f5b2c3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.25);
+
+}
+ .top-logo {
+  display: block;
+  margin: 0 auto 0px;   /* center + space below */
+  max-width: 150px;      /* adjust size if needed */
+  width: 100%;
+  opacity: 0.9;
+  margin-bottom: -5px; /* pulls the names closer to the logo */
+  margin-bottom: -5px;
+
+
+  /* optional soft entrance */
+  animation: fadeLogo 1.2s ease;
+}
+
+@keyframes fadeLogo {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateY(0) scale(1);
+  }
+}
+``
 
 /* 🌸 Float motion */
 @keyframes iconFloat {
@@ -85,7 +268,7 @@
   font-size: 11px;
   letter-spacing: 0.36em;
   text-transform: uppercase;
-  color: #777;
+  color: #fcf9f9;
   margin-top: 4px;
 }
 
@@ -328,7 +511,7 @@
   text-align: center;
   font-weight: bold;
   margin: 18px 0 4px;
-  color: #555;
+  color: #f8f7f7;
 }
 
 .entourage-center-subtitle {
@@ -336,7 +519,7 @@
   font-style: italic;
   font-size: 13px;
   margin-bottom: 16px;
-  color: #555;
+  color: #f5f2f2;
 }
 
 /* 📱 MOBILE — KEEP DESKTOP ENTOURAGE VIEW */
@@ -575,18 +758,13 @@ body {
   color: #555;
 }
 
-h1, h2, h3,
-.section a,
-.date {
-  color: #fb6f92;
-}
 
 
 i,
 .fa-solid,
 .fa-regular,
 .fa-brands {
-  color: #fb6f92 !important;
+  color: #f5b2c3 !important;
 }
 ::placeholder {
   color: #fb6f92;
@@ -630,25 +808,87 @@ i,
 }
 
 
+/* 💎 LUXURY SUBMIT BUTTON */
 #submitBtn {
   position: relative;
   overflow: hidden;
+  border-radius: 18px;
+
+  /* ✅ Transparent glass look */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: #fff;
+
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+
+  transition: all 0.35s ease;
 }
 
-#submitBtn::after {
-  content: "❤️";
+/* ✨ Hover glow */
+#submitBtn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow:
+    0 12px 30px rgba(245,178,195,0.35),
+    0 0 18px rgba(245,178,195,0.45);
+}
+
+/* ✨ CLICK PRESS EFFECT */
+#submitBtn:active {
+  transform: scale(0.97);
+}
+
+/* ✨ GOLD SHINE SWEEP */
+#submitBtn::before {
+  content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 26px;
-  opacity: 0;
-  transform: translate(-50%, -50%) scale(0.6);
-  transition: all 0.4s ease;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+
+  transform: skewX(-25deg);
 }
 
-#submitBtn:hover::after {
-  opacity: 1;
-  transform: translate(-50%, -90%) scale(1);
+/* Animate shine */
+#submitBtn:hover::before {
+  animation: luxuryShine 1s ease forwards;
+}
+
+@keyframes luxuryShine {
+  to {
+    left: 130%;
+  }
+}
+
+/* ✨ SOFT PULSE (idle elegance) */
+#submitBtn {
+  animation: luxuryPulseBtn 3.5s ease-in-out infinite;
+}
+
+@keyframes luxuryPulseBtn {
+  0%, 100% {
+    box-shadow:
+      0 8px 20px rgba(0,0,0,0.15),
+      0 0 0 rgba(245,178,195,0);
+  }
+  50% {
+    box-shadow:
+      0 12px 28px rgba(0,0,0,0.2),
+      0 0 16px rgba(245,178,195,0.4);
+  }
 }
 
 
@@ -935,36 +1175,25 @@ body {
 
 
 
-
 .invite {
   background:
-    linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)),
-    url("images/xxxxx") center / cover no-repeat;
-  max-width: 800px;
+background: rgba(255,255,255,0.08); /* very light glass */
+  max-width: 700px;
   width: 100%;
-  padding: 24px;
+  padding: 16px 20px;   /* reduce from 24px */
   border-radius: 22px;
   box-shadow: 0 15px 40px rgba(0,0,0,.1);
   text-align: center;
+  background-size: cover;
+  background-position: top;
 }
-
-
-
-
-h1 {
-  font-family: "Playfair Display", serif;
-  font-size: 34px;
-  margin-bottom: 4px;
-  color: #fb6f92;
-}
-
 
 
 /* Wedding Details Sections */
 .details h2 {
   font-family: "Playfair Display", serif;
   font-size: 22px;
-  color: #fb6f92;
+  color: #eccad3;
   margin: 18px 0 8px;
 }
 
@@ -973,14 +1202,14 @@ h1 {
   text-transform: uppercase;
   margin: 14px 0 6px;
   letter-spacing: 1px;
-  color: #777;
+  color: #e7c8c8;
 }
 
 .details p,
 .details li {
   font-size: 13px;
   margin: 4px 0;
-  color: #555;
+  color: #ebdede;
 }
 
 .grid-2 {
@@ -1008,12 +1237,12 @@ h1 {
 
 
 
+
 h3 {
-  font-family: "Playfair Display", serif;
-  font-size: 34px;
-  margin-bottom: 4px;
-  color: #fb6f92;
+  margin-top: 0;
+  padding-top: 0;
 }
+
 
 
 
@@ -1037,35 +1266,214 @@ a {
   color: #fb6f92;
 }
 
+/* ===============================
+   💎 LUXURY COUNTDOWN STYLE
+   =============================== */
+
+@media (max-width: 480px) {
+  .countdown {
+    grid-template-columns: repeat(4, 50px);
+    gap: 6px;
+  }
+
+  .time-box {
+    padding: 8px 4px;
+  }
+
+  .time-box span {
+    font-size: 16px;
+  }
+
+  .time-box small {
+    font-size: 6px;
+  }
+}
+
+
 .countdown {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(50px, 80px));
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 20px;
-  color: #fb6f92;
 }
 
 .time-box {
-  background: #ffe4e6;
-  border-radius: 12px;
-  padding: 10px;
-  animation: pulse 2s infinite;
-  color: #fb6f92;
+  padding: 10px 6px;
 }
 
 .time-box span {
-  display: block;
-  font-size: 22px;
-  font-weight: 600;
-  color: #fb6f92;
+  font-size: clamp(16px, 3vw, 22px);
 }
 
 .time-box small {
-  text-transform: uppercase;
-  font-size: 10px;
+  font-size: clamp(7px, 1.5vw, 10px);
 }
 
 
+/* Glass + gold card */
+.time-box {
+  position: relative;
+  padding: 14px 10px;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(196, 167, 106, 0.25);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12),
+    inset 0 1px 0 #fb6f92;
+
+  transition: all 0.4s ease;
+}
+
+/* ✨ Elegant hover lift */
+.time-box:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow:
+    0 14px 40px rgba(0,0,0,0.18),
+    0 0 18px #fb6f92;
+}
+
+/* Top gold line accent */
+.time-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #fb6f92, transparent);
+}
+
+/* Main number */
+.time-box span {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 600;
+
+  background: linear-gradient(135deg, #fb6f92, #f1e3c6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 0.03em;
+}
+
+/* Label text */
+.time-box small {
+  display: block;
+  margin-top: 4px;
+
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+
+  color: #fb6f92;
+}
+
+/* ✨ Subtle breathing glow */
+@keyframes luxuryPulse {
+  0%, 100% {
+    box-shadow:
+      0 10px 30px rgba(0,0,0,0.12),
+      0 0 0 rgba(196,167,106,0);
+  }
+  50% {
+    box-shadow:
+      0 14px 32px rgba(0,0,0,0.16),
+      0 0 12px rgba(196,167,106,0.25);
+  }
+}
+
+.time-box {
+  animation: luxuryPulse 4s ease-in-out infinite;
+}
+
+/* ✨ Tick animation (refined) */
+.time-box span.tick {
+  animation: luxuryTick 0.35s ease;
+}
+
+@keyframes luxuryTick {
+  50% {
+    transform: scale(1.12);
+    text-shadow: 0 0 10px rgba(196,167,106,0.5);
+  }
+}
+
+.countdown::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 22px;
+  background: radial-gradient(
+    circle,
+    rgba(196,167,106,0.12),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+/* ===============================
+   🕊 COUNTDOWN HALO CONTAINER
+   =============================== */
+
+.countdown {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Soft ambient glow behind */
+.countdown::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 28px;
+
+  background: radial-gradient(
+    circle,
+    rgba(212,175,55,0.18) 0%,
+    rgba(255,255,255,0.05) 40%,
+    transparent 70%
+  );
+
+  filter: blur(18px);
+  z-index: -2;
+}
+
+/* ✨ Floating particles */
+.cd-particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    #f8e7c7 0%,
+    #d4af37 40%,
+    transparent 70%
+  );
+
+  opacity: 0.6;
+  pointer-events: none;
+  animation: cdFloat linear infinite;
+}
+
+/* Floating animation */
+@keyframes cdFloat {
+  from {
+    transform: translateY(0) scale(0.8);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateY(-80px) scale(1.2);
+    opacity: 0;
+  }
+}
 
 .section {
   border-top: 1px dashed #f2c0c8;
@@ -1076,7 +1484,7 @@ a {
 .section a {
   display: block;
   text-decoration: none;
-  color: #fb6f92;
+  color: #f7cbd6;
   margin: 8px 0;
 }
 
@@ -1088,7 +1496,15 @@ a {
 form {
   margin-top: 12px;
   text-align: left;
-  color: #fb6f92;
+  color: #f1dae0;
+
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.invite form {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
 input, select, textarea {
@@ -1098,7 +1514,7 @@ input, select, textarea {
   padding: 10px;
   margin-bottom: 12px;
   font-size: 14px;
- color: #fb6f92;
+ color: #f0dae0;
 }
 
 
@@ -1194,7 +1610,31 @@ input, select, textarea {
   flex-wrap: wrap;
 }
 
+/* ✅ RSVP TEXT — FORCE WHITE */
+form,
+form label,
+form h3,
+form p,
+form small,
+form option,
+form select,
+form input,
+form textarea,
+form button,
+#submitBtn,
+::placeholder {
+  color: #eccece !important;
+}
 
+/* Dropdown options (some browsers need this) */
+select option {
+  color: #000; /* keep readable inside dropdown */
+}
+
+/* Keep icons white inside RSVP if any */
+form i {
+  color: #ffffff !important;
+}
 
 /* Tooltip Labels */
 .color-palette span {
@@ -1310,7 +1750,7 @@ input, select, textarea {
 
 button {
   width: 100%;
-  background: #ffc2d1;
+  background: rgba(255,255,255,0.08); /* very light glass */
   color: #fff;
   border: none;
   padding: 12px;
@@ -1321,7 +1761,7 @@ button {
 }
 
 button:hover {
-  background: #ff8fab;
+  background: rgba(255,255,255,0.08); /* very light glass */
 }
 
 .thankyou {
@@ -1360,9 +1800,7 @@ button:hover {
   50% { transform: scale(1.05); }
 }
 
-/* Mobile */
-@media (max-width: 400px) {
-  h1 { font-size: 30px; }
+
 
 }
 /* ===============================
@@ -1404,32 +1842,105 @@ body.reveal-content .invite {
   color: #fb6f92;
 }
 
+/* 💖 FORCE ALL TEXT TO #f5b2c3 */
+body,
+body * {
+  color: #f5b2c3 !important;
+}
 
+/* =========================
+   📸 SLIDESHOW MODAL
+   ========================= */
+.slideshow-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 99999;
+}
 
-</style>
-</head>
+/* Show modal */
+.slideshow-modal.active {
+  display: flex;
+}
 
+/* Image */
+.slideshow-container {
+  position: relative;
+  max-width: 90%;
+}
 
+#slideImage {
+  width: 100%;
+  max-height: 75vh;
+  border-radius: 18px;
+  animation: fadeZoom 0.8s ease;
+}
 
-<script>
-  const reveals = document.querySelectorAll('.section, .details');
-
-  function revealOnScroll() {
-    const height = window.innerHeight;
-    reveals.forEach(el => {
-      const top = el.getBoundingClientRect().top;
-      if (top < height - 80) {
-        el.classList.add('reveal', 'active');
-      }
-    });
+/* Animation */
+@keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
   }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
-</script>
+/* Close */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 32px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Arrows */
+.prev, .next {
+  position: absolute;
+  top: 110%;
+  background: none;
+ 
+
+
+}
+
+.prev { left: -500px; }
+.next { right: -500px; }
+
+/* Dots */
+.dots-container {
+  margin-top: 14px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 4px;
+  background: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #fb6f92;
+}
+</style>
 
 
 
+
+
+
+</head>
 <audio id="bgMusic" loop>
   <source src="music/wedding-song.mp3" type="audio/mpeg">
   Your browser does not support the audio element.
@@ -1441,7 +1952,7 @@ body.reveal-content .invite {
 
 <!-- 🎥 Background Video -->
 <video class="video-bg" autoplay muted loop playsinline>
-  <source src="videos/AI.mp4" type="video/mp4">
+  <source src="../videos/AI.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -1450,121 +1961,11 @@ body.reveal-content .invite {
 
 
 
-
-
-
-
-<button id="musicToggle" class="music-btn">
-  <div class="eq">
-    <span></span><span></span><span></span>
-  </div>
-  <i class="fa-solid fa-music"></i>
-</button>
-
-<script>
-  const music = document.getElementById("bgMusic");
-  const toggle = document.getElementById("musicToggle");
-
-  const BPM = 96; // 🎼 change if needed
-  toggle.style.setProperty("--bpm", `${60 / BPM}s`);
-
-  let isPlaying = false;
-  let noteInterval;
-
-  function spawnMusicNote() {
-    const note = document.createElement("div");
-    note.className = "music-note";
-    note.textContent = Math.random() > 0.5 ? "🎵" : "🎶";
-
-    const rect = toggle.getBoundingClientRect();
-    note.style.left = rect.left + rect.width / 2 + "px";
-    note.style.top = rect.top + "px";
-
-    document.body.appendChild(note);
-    setTimeout(() => note.remove(), 3000);
-  }
-
-  function startNotes() {
-    noteInterval = setInterval(spawnMusicNote, 900);
-  }
-
-  function stopNotes() {
-    clearInterval(noteInterval);
-  }
-
-  const startMusic = () => {
-    if (!isPlaying) {
-      music.play().then(() => {
-        isPlaying = true;
-        toggle.classList.add("playing");
-        toggle.classList.remove("paused");
-        toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
-        startNotes();
-      }).catch(() => {});
-    }
-
-    document.removeEventListener("click", startMusic);
-    document.removeEventListener("touchstart", startMusic);
-    document.removeEventListener("scroll", startMusic);
-  };
-
-  document.addEventListener("click", startMusic);
-  document.addEventListener("touchstart", startMusic);
-  document.addEventListener("scroll", startMusic);
-
-  toggle.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    if (isPlaying) {
-      music.pause();
-      stopNotes();
-      toggle.classList.remove("playing");
-      toggle.classList.add("paused");
-      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-music"></i>';
-    } else {
-      music.play();
-      startNotes();
-      toggle.classList.add("playing");
-      toggle.classList.remove("paused");
-      toggle.innerHTML = '<div class="eq"><span></span><span></span><span></span></div><i class="fa-solid fa-pause"></i>';
-    }
-
-    isPlaying = !isPlaying;
-  });
-</script>
-
-  <script>
-  const sparkleCount = 30;
-
-  for (let i = 0; i < sparkleCount; i++) {
-    createSparkle();
-  }
-
-  function createSparkle() {
-    const sparkle = document.createElement("div");
-    sparkle.className = "sparkle";
-
-    sparkle.style.left = Math.random() * 100 + "vw";
-    sparkle.style.animationDuration = 6 + Math.random() * 6 + "s";
-    sparkle.style.animationDelay = Math.random() * 5 + "s";
-    sparkle.style.width = sparkle.style.height =
-      4 + Math.random() * 4 + "px";
-
-    document.body.appendChild(sparkle);
-
-    sparkle.addEventListener("animationend", () => {
-      sparkle.remove();
-      createSparkle();
-    });
-  }
-</script>
-
-
 <div class="invite">
   <h1>Frequently Asked Questions</h1>
 
-  <details>
-    <summary>WHEN SHOULD I RSVP BY?</summary>
+
+    <h4>WHEN SHOULD I RSVP BY?</h4>
     <p>
       Please send your RSVP as soon as you can. The earlier, the better!<br><br>
       The latest we can accept your response is on
@@ -1575,54 +1976,52 @@ body.reveal-content .invite {
       total guest count to our venue and suppliers. We hope you understand.<br><br>
       To RSVP, go to the <strong>“Guest RSVP”</strong> tab.
     </p>
-  </details>
 
-  <details>
-    <summary>WHAT SHOULD I WEAR?</summary>
+
+
+    <h4>WHAT SHOULD I WEAR?</h4>
     <p>
       Refer to the attire guide under the <strong>“Attire”</strong> tab.
       Check it out!<br><br>
       <strong>Note:</strong> STRICTLY no wearing of white dress, jeans, or slippers.
     </p>
-  </details>
+  
 
-  <details>
-    <summary>CAN I BRING A DATE (PLUS ONE)?</summary>
+
+    <h4>CAN I BRING A DATE (PLUS ONE)?</h4>
     <p>
       Unfortunately, no. We will specifically inform you if you can have a plus one.
       We hope you understand that we can no longer accommodate those who are not
       listed on our guest list due to limited seats at the venue.
     </p>
-  </details>
 
-  <details>
-    <summary>ARE KIDS ALLOWED?</summary>
+
+
+    <h4>ARE KIDS ALLOWED?</h4>
     <p>
       We certainly love your kids, but due to necessity rather than choice, we
       regretfully cannot accommodate them at the venue.
       The only kids attending are those who are part of the entourage and those
       requested. We hope you understand and enjoy the night off.
     </p>
-  </details>
+  
 
-  <details>
-    <summary>IS THE CEREMONY AND RECEPTION AT THE SAME PLACE?</summary>
+    <h4>IS THE CEREMONY AND RECEPTION AT THE SAME PLACE?</h4>
     <p>
       No. The church and reception hall are not located in the same place.
       More details about the locations can be found in the <strong>“Venue”</strong>
       tab. Check it out!
     </p>
-  </details>
 
-  <details>
-    <summary>IS THERE A PARKING SPACE PROVIDED?</summary>
+
+    <h4>IS THERE A PARKING SPACE PROVIDED?</h4>
     <p>
       Yes. There is free parking available for all wedding guests.
     </p>
-  </details>
 
-  <details>
-    <summary>WHAT TIME SHOULD I ARRIVE?</summary>
+
+  
+    <h4>WHAT TIME SHOULD I ARRIVE?</h4>
     <p>
       We encourage our wedding guests to be at the venue
       <strong>30 minutes before</strong> our
@@ -1630,10 +2029,10 @@ body.reveal-content .invite {
       seat.<br><br>
       Kindly consider traffic and travel time going to the venue.
     </p>
-  </details>
 
-  <details>
-    <summary>WHAT DO I DO IF I’M LATE TO THE CEREMONY?</summary>
+
+
+    <h4>WHAT DO I DO IF I’M LATE TO THE CEREMONY?</h4>
     <p>
       If you are late to the ceremony, please do not walk down the aisle and try to
       find a seat.<br><br>
@@ -1641,19 +2040,18 @@ body.reveal-content .invite {
       you would ask assistance from our coordinator or wait to join us until the
       reception. Thank you for understanding.
     </p>
-  </details>
 
-  <details>
-    <summary>CAN I TAKE PHOTOS OR VIDEOS DURING THE CEREMONY?</summary>
+
+
+    <h4>CAN I TAKE PHOTOS OR VIDEOS DURING THE CEREMONY?</h4>
     <p>
       We encourage our guests to refrain from taking photos or videos during the
       ceremony as we have hired an amazing team to capture the moments.
       Guests may still do so.
     </p>
-  </details>
 
-  <details>
-    <summary>WHAT SHOULD I DO ONCE THE CEREMONY IS DONE?</summary>
+
+    <h4>WHAT SHOULD I DO ONCE THE CEREMONY IS DONE?</h4>
     <p>
       There will be a cocktail hour after the ceremony wherein afternoon snacks will
       be served.<br><br>
@@ -1661,70 +2059,49 @@ body.reveal-content .invite {
       use the photo booth, and get your souvenirs.
       Our coordinators will be available if you need any assistance.
     </p>
-  </details>
+ 
 
-  <details>
-    <summary>CAN I SEAT ANYWHERE DURING THE RECEPTION?</summary>
+
+    <h4>CAN I SEAT ANYWHERE DURING THE RECEPTION?</h4>
     <p>
       Yes. Feel free to sit anywhere during the reception, pick a spot you like,
       mingle around, and make yourself at home.<br><br>
       <strong>Note:</strong> Our principal sponsors will have designated seats
       reserved for them.
     </p>
-  </details>
+  
 
-  <details>
-    <summary>WHEN IS THE APPROPRIATE TIME TO LEAVE?</summary>
+ 
+    <h4>WHEN IS THE APPROPRIATE TIME TO LEAVE?</h4>
     <p>
       It took us almost a year to plan a wedding that everyone will hopefully enjoy.
       We encourage our guests to finish the program.<br><br>
       We aim to end at <strong>9:00 PM to 10:00 PM</strong>.
     </p>
-  </details>
+  
 
-  <details>
-    <summary>HOW CAN I HELP THE COUPLE TO HAVE THE BEST TIME ON THEIR WEDDING DAY?</summary>
+
+    <h4>HOW CAN I HELP THE COUPLE TO HAVE THE BEST TIME ON THEIR WEDDING DAY?</h4>
     <p>
       Be there on time. Wear appropriate attire. Stay until the end of the program.
       Participate and have <strong>FUN!</strong>
     </p>
-  </details>
+ 
 
-  <details>
-    <summary>OTHER QUESTIONS OR CONCERNS?</summary>
+
+    <h4>OTHER QUESTIONS OR CONCERNS?</h4>
     <p>
       You may contact us thru Facebook Messenger or via SMS:<br><br>
       <strong>Nichole:</strong> 0969 096 1848<br>
       <strong>Marc Jovin:</strong> 0947 000 0335
     </p>
-  </details>
-<div><a href="../index.html">Back to home</a></div>
+  
+<div class="nav-buttons">
+  <a href="../index.html" class="nav-btn">Back to Home</a>
 </div>
 
 
 
-
-
-<script>
-  const toggleBtn = document.getElementById('toggleAllFaqs');
-  const allDetails = document.querySelectorAll('.faq details');
-  let faqsVisible = false;
-
-  toggleBtn.addEventListener('click', () => {
-    faqsVisible = !faqsVisible;
-
-    allDetails.forEach(detail => {
-      detail.style.display = faqsVisible ? 'block' : 'none';
-      detail.open = false; // collapse answers when hiding
-    });
-
-    toggleBtn.textContent = faqsVisible ? 'Hide FAQs' : 'FAQs';
-
-    if (faqsVisible && allDetails.length) {
-      allDetails[0].scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  });
-</script>
 
 
 
