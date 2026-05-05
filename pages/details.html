@@ -1737,10 +1737,21 @@ button:hover {
   margin-top: 6px;
 }
 .timeline img {
-  width: 650px;
+  width: 100%;
+  max-width: 650px;
+  height: auto;
   margin-top: 6px;
+  object-fit: contain;
 }
-
+@media (max-width: 480px) {
+  .timeline img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+.timeline {
+  padding: 0 10px;
+}
 #entourageContent {
   display: none;
   animation: fadeIn 0.4s ease;
@@ -1854,7 +1865,7 @@ body * {
 
 <div class="invite">
   <hr class="bottom-line">
-  <h1>Our Wedding Day Timeline</h1>
+  <h1></h1>
 
 
 <!-- Wedding Day Timeline -->
